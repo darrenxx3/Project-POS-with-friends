@@ -18,5 +18,10 @@ namespace SerbaJaya_POS
             this.WindowState = FormWindowState.Maximized;
             MessageBox.Show("NASI BAKAR!");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("NASI REBUS!");
+        }
     }
 }
