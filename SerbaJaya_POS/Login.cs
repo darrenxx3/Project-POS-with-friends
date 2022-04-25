@@ -16,6 +16,7 @@ namespace SerbaJaya_POS
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            MessageBox.Show("NASI BAKAR!");
         }
     }
 }
