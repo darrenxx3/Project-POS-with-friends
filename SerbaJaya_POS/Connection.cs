@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ConnectionSQL
+namespace Connection
 {
     public class Connection_Query
     {
-        string ConnectionString = "";
+        string ConnectionString = "Data Source=VIN\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
+
         SqlConnection conn;
 
         public void OpenConnection()

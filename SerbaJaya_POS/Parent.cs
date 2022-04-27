@@ -12,18 +12,45 @@ namespace SerbaJaya_POS
 {
     public partial class Parent : Form
     {
-        public Parent()
+        void loadMenu(String role, string name)
+        {
+            switch (role)
+            {
+                case "Cashier" :
+                    stripKasir.Visible = true;
+                    break;
+                case "Warehouse":
+                    stripGudang.Visible = true;
+                    break;
+                case "Manager":
+                    stripManager.Visible = true;
+                    break;
+            }
+
+            stripUser.Text = name;
+        }
+
+        public Parent(String role, string name)
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            IsMdiContainer = true;
+            loadMenu(role, name);
         }
 
         private void Parent_Load(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.MdiParent = this;
-            login.Show();
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void userLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.ShowDialog();
+                this.Close();
+            }
         }
     }
 }
