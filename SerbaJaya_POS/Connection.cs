@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ConnectionSQL
+namespace Connection
 {
     public class Connection_Query
     {
-        string ConnectionString = "";
+        string ConnectionString =
+            "Integrated Security=SSPI;" +
+            "Persist Security Info=False;" +
+            "Initial Catalog=UASVisprog ;" +
+            "Data Source=LAPTOP-6ENO241Q\\SQLEXPRESS"; //Ubah Data Sourcenya aja Gan.
+
         SqlConnection conn;
 
         public void OpenConnection()
