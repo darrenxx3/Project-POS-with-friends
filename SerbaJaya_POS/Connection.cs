@@ -10,7 +10,12 @@ namespace Connection
 {
     public class Connection_Query
     {
-        string ConnectionString = "Data Source=VIN\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
+        string ConnectionString = "Data Source = LAPTOP-6ENO241Q\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
+
+          //SK 
+          //"Data Source=VIN\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
+
+
 
         SqlConnection conn;
 
