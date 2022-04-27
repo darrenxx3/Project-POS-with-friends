@@ -15,8 +15,8 @@ namespace SerbaJaya_POS
         public Login()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            MessageBox.Show("NASI BAKAR!");
+          //  this.WindowState = FormWindowState.Maximized;
+          //  MessageBox.Show("NASI BAKAR!");
         }
     }
 }

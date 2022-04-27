@@ -15,15 +15,21 @@ namespace SerbaJaya_POS
         public Parent()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            IsMdiContainer = true;
+           // this.WindowState = FormWindowState.Maximized;
+           // IsMdiContainer = true;
         }
 
         private void Parent_Load(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.MdiParent = this;
-            login.Show();
+           // Login login = new Login();
+           // login.MdiParent = this;
+           // login.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reportmenu form = new Reportmenu();
+            form.Show();
         }
     }
 }
