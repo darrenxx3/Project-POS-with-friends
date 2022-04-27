@@ -38,7 +38,19 @@ namespace SerbaJaya_POS
 
         private void Parent_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+        }
 
+        private void userLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

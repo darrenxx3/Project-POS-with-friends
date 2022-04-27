@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="Kasir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kasir.Designer.cs">
+      <DependentUpon>Kasir.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Kasir.resx">
+      <DependentUpon>Kasir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gudang\" />
-    <Folder Include="Kasir\" />
     <Folder Include="Manager\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

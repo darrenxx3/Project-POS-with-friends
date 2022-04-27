@@ -63,7 +63,7 @@
             this.stripUser});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,14 +72,14 @@
             this.stripKasir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.KasirMenu});
             this.stripKasir.Name = "stripKasir";
-            this.stripKasir.Size = new System.Drawing.Size(65, 32);
+            this.stripKasir.Size = new System.Drawing.Size(65, 29);
             this.stripKasir.Text = "Kasir";
             this.stripKasir.Visible = false;
             // 
             // KasirMenu
             // 
             this.KasirMenu.Name = "KasirMenu";
-            this.KasirMenu.Size = new System.Drawing.Size(270, 34);
+            this.KasirMenu.Size = new System.Drawing.Size(201, 34);
             this.KasirMenu.Text = "Menu Kasir";
             // 
             // stripGudang
@@ -88,20 +88,20 @@
             this.gudangCek,
             this.gudangKonfirmasi});
             this.stripGudang.Name = "stripGudang";
-            this.stripGudang.Size = new System.Drawing.Size(119, 32);
+            this.stripGudang.Size = new System.Drawing.Size(119, 29);
             this.stripGudang.Text = "WareHouse";
             this.stripGudang.Visible = false;
             // 
             // gudangCek
             // 
             this.gudangCek.Name = "gudangCek";
-            this.gudangCek.Size = new System.Drawing.Size(270, 34);
+            this.gudangCek.Size = new System.Drawing.Size(258, 34);
             this.gudangCek.Text = "Cek Gudang";
             // 
             // gudangKonfirmasi
             // 
             this.gudangKonfirmasi.Name = "gudangKonfirmasi";
-            this.gudangKonfirmasi.Size = new System.Drawing.Size(270, 34);
+            this.gudangKonfirmasi.Size = new System.Drawing.Size(258, 34);
             this.gudangKonfirmasi.Text = "Konfirmasi Barang";
             // 
             // stripManager
@@ -111,26 +111,26 @@
             this.managerPurchase,
             this.managerReport});
             this.stripManager.Name = "stripManager";
-            this.stripManager.Size = new System.Drawing.Size(98, 32);
+            this.stripManager.Size = new System.Drawing.Size(98, 29);
             this.stripManager.Text = "Manager";
             this.stripManager.Visible = false;
             // 
             // managerEmployee
             // 
             this.managerEmployee.Name = "managerEmployee";
-            this.managerEmployee.Size = new System.Drawing.Size(270, 34);
+            this.managerEmployee.Size = new System.Drawing.Size(242, 34);
             this.managerEmployee.Text = "Menu Employee";
             // 
             // managerPurchase
             // 
             this.managerPurchase.Name = "managerPurchase";
-            this.managerPurchase.Size = new System.Drawing.Size(270, 34);
+            this.managerPurchase.Size = new System.Drawing.Size(242, 34);
             this.managerPurchase.Text = "Menu Purchase";
             // 
             // managerReport
             // 
             this.managerReport.Name = "managerReport";
-            this.managerReport.Size = new System.Drawing.Size(270, 34);
+            this.managerReport.Size = new System.Drawing.Size(242, 34);
             this.managerReport.Text = "Cetak Report";
             // 
             // stripUser
@@ -140,7 +140,7 @@
             this.userProfile,
             this.userLogOut});
             this.stripUser.Name = "stripUser";
-            this.stripUser.Size = new System.Drawing.Size(115, 32);
+            this.stripUser.Size = new System.Drawing.Size(115, 29);
             this.stripUser.Text = "Nama User";
             // 
             // userProfile
@@ -154,6 +154,7 @@
             this.userLogOut.Name = "userLogOut";
             this.userLogOut.Size = new System.Drawing.Size(270, 34);
             this.userLogOut.Text = "Log Out";
+            this.userLogOut.Click += new System.EventHandler(this.userLogOut_Click);
             // 
             // Parent
             // 

@@ -27,14 +27,6 @@ namespace SerbaJaya_POS
         {
 
 
-            try
-            {
-                
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error!");
-            }
         }
 
         private void btnLog_Click(object sender, EventArgs e)
