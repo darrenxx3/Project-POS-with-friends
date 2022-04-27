@@ -1,6 +1,9 @@
 create database UASVisprog
 use UASVisprog
 
+--Run ini dulu kalo udah kebuat--
+DROP Database UASVisprog
+
 --CREATE TABLE--
 create table Position
 (
@@ -12,8 +15,9 @@ create table Employee
 (
 	EmployeeID char(10) primary key not null,
 	EmployeeName varchar(50) not null,
-	PositionID char(10), 
-		foreign key (PositionID) references Position,
+	PositionID char(10), foreign key (PositionID) references Position,
+	Address varchar(100) NOT NULL,
+	PhoneNumber char(20) NOT NULL,
 	Password varchar(100) NOT NULL
 );
 
@@ -51,7 +55,9 @@ CREATE TABLE PurchaseOrder(
     PurchaseOrderID CHAR(10) PRIMARY KEY NOT NULL,
     SupplierID CHAR(10) FOREIGN KEY REFERENCES Supplier(SupplierID) NOT NULL,
     OrderDate DATE NOT NULL,
-    EmployeeID CHAR(10) FOREIGN KEY REFERENCES Employee(EmployeeID) NOT NULL
+    EmployeeID CHAR(10) FOREIGN KEY REFERENCES Employee(EmployeeID) NOT NULL,
+	OrderStatus CHAR(20) NOT NULL,
+	WarehouseNote VARCHAR(100)
 );
 
 CREATE TABLE PurchaseOrderDetail(
@@ -69,12 +75,12 @@ insert into Position
 	('WH001', 'Warehouse');
 
 insert into Employee 
-	(EmployeeID, EmployeeName, PositionID, Password) 
+	(EmployeeID, EmployeeName, PositionID, Address, PhoneNumber, Password) 
 	values 
-	('E0001', 'Agustinus Budiman', 'WH001', '123'),
-	('E0002', 'Calvin Hartanto', 'MM001', '123'),
-	('E0003', 'David Sihombing', 'CC001', '123'),
-	('E0004', 'Tsucipto Purnomo', 'CC001', '123');
+	('E0001', 'Agustinus Budiman', 'WH001','Jl. pagi sore sore juga boleh', '082269696969', '123'),
+	('E0002', 'Calvin Hartanto', 'MM001','Jl. pagi sore sore juga boleh', '082269696969', '123'),
+	('E0003', 'David Sihombing', 'CC001','Jl. pagi sore sore juga boleh', '082269696969', '123'),
+	('E0004', 'Tsucipto Purnomo', 'CC001','Jl. pagi sore sore juga boleh', '082269696969', '123');
 
 insert into DataItem
 	(ItemID, ItemName, Cost, SalesPrice, Stock, Descriptions)
@@ -110,13 +116,13 @@ VALUES
     ('S0005', 'MK0126', '4'),
     ('S0005', 'MK0127', '5');
 
-INSERT INTO PurchaseOrder (PurchaseOrderID,SupplierID,OrderDate,EmployeeID)
+INSERT INTO PurchaseOrder (PurchaseOrderID,SupplierID,OrderDate,EmployeeID, OrderStatus, WarehouseNote)
 VALUES
-    ('P0001', 'SS001', '2021-10-15', 'E0002'),
-    ('P0002', 'SS002', '2022-10-18', 'E0002'),
-    ('P0003', 'SS003', '2022-08-13', 'E0002'),
-    ('P0004', 'SS004', '2022-05-12', 'E0002'),
-    ('P0005', 'SS005', '2022-07-23', 'E0002');
+    ('P0001', 'SS001', '2021-10-15', 'E0002', 'Not Done', null),
+    ('P0002', 'SS002', '2022-10-18', 'E0002', 'Not Done', null),
+    ('P0003', 'SS003', '2022-08-13', 'E0002', 'Not Done', null),
+    ('P0004', 'SS004', '2022-05-12', 'E0002', 'Not Done', null),
+    ('P0005', 'SS005', '2022-07-23', 'E0002', 'Not Done', null);
 
 
 INSERT INTO PurchaseorderDetail (PurchaseOrderID,ItemID,Quantity)
