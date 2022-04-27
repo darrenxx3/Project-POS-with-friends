@@ -15,6 +15,7 @@ namespace SerbaJaya_POS
         public Reportmenu()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void Reportmenu_Load(object sender, EventArgs e)
