@@ -66,6 +66,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagerPurchasing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerPurchasing.Designer.cs">
+      <DependentUpon>ManagerPurchasing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerPurchasing.resx">
+      <DependentUpon>ManagerPurchasing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.cs</DependentUpon>
