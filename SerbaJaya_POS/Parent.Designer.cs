@@ -43,6 +43,7 @@
             this.stripUser = new System.Windows.Forms.ToolStripMenuItem();
             this.userProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.userLogOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             this.stripUser});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(800, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -81,6 +83,7 @@
             this.KasirMenu.Name = "KasirMenu";
             this.KasirMenu.Size = new System.Drawing.Size(201, 34);
             this.KasirMenu.Text = "Menu Kasir";
+            this.KasirMenu.Click += new System.EventHandler(this.KasirMenu_Click);
             // 
             // stripGudang
             // 
@@ -146,22 +149,35 @@
             // userProfile
             // 
             this.userProfile.Name = "userProfile";
-            this.userProfile.Size = new System.Drawing.Size(270, 34);
+            this.userProfile.Size = new System.Drawing.Size(216, 34);
             this.userProfile.Text = "Setting Profil";
             // 
             // userLogOut
             // 
             this.userLogOut.Name = "userLogOut";
-            this.userLogOut.Size = new System.Drawing.Size(270, 34);
+            this.userLogOut.Size = new System.Drawing.Size(216, 34);
             this.userLogOut.Text = "Log Out";
             this.userLogOut.Click += new System.EventHandler(this.userLogOut_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Location = new System.Drawing.Point(0, 38);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 412);
+            this.panel1.TabIndex = 3;
             // 
             // Parent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Parent";
             this.Text = "Serba Jaya";
@@ -189,6 +205,7 @@
         private System.Windows.Forms.ToolStripMenuItem stripUser;
         private System.Windows.Forms.ToolStripMenuItem userProfile;
         private System.Windows.Forms.ToolStripMenuItem userLogOut;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
