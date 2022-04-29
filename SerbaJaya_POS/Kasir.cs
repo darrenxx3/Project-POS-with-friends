@@ -19,16 +19,64 @@ namespace SerbaJaya_POS
 
         public string employeeID;
 
+        //-------------Database Method---------------------
+
+        void insertDataDetail()
+        {
+            foreach(DataGridViewRow row in dgvSales.Rows)
+            {
+                int qty = Convert.ToInt32(row.Cells[2].Value);
+                string itemID = row.Cells[0].Value.ToString();
+                int price = Convert.ToInt32(row.Cells[3].Value);
+
+                string queryAdd = 
+                    "INSERT INTO SalesDetail " +
+                    "(SalesID, ItemID, Quantity) " +
+                    $"VALUES ('{tbID.Text}', '{ itemID }', { qty })";
+
+                string queryUpdt =
+                    "UPDATE DataItem " +
+                    $"SET Stock = Stock - {qty} " +
+                    $"WHERE ItemID = '{itemID}' ";
+
+                var conn = new Connection.Connection_Query();
+
+                try
+                {
+                    conn.OpenConnection();
+                    conn.ExecuteQueires(queryAdd);
+                    conn.ExecuteQueires(queryUpdt);
+                    conn.CloseConnectoin();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         void insertDataSales()
         {
             var conn = new Connection.Connection_Query();
             string query1 =
                 "INSERT INTO Sales " +
-                "(SalesID, TransactionDate, EmployeeID)";
+                "(SalesID, TransactionDate, EmployeeID) " +
+                $"VALUES ('{tbID.Text}', '{DateTime.Now}', '{tbCashier.Text}')";
 
             try
             {
                 conn.OpenConnection();
+                conn.ExecuteQueires(query1);
+                conn.CloseConnectoin();
+
+                insertDataDetail();
+
+                MessageBox.Show("Transaksi Selesai! Terima kasih.");
+                RefreshPage();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -44,45 +92,6 @@ namespace SerbaJaya_POS
             return total;
         }
 
-        void updateSubTotal()
-        {
-            int subtotal = getSubtotal(dgvSales);
-            double Tax = (double) subtotal * 0.11;
-            double Disc = subtotal * (double) (numDiscount.Value / 100);
-
-            tbSub.Text = subtotal.ToString("N0");
-            tbTax.Text = Tax.ToString("N0");
-            tbDiscount.Text = Disc.ToString("N0");
-
-            tbTotal.Text = (subtotal + Tax - Disc).ToString("N0");
-        }
-
-        void updateCells(int qty, int price, DataGridViewRow row)
-        {
-            row.Cells[2].Value = qty;
-            row.Cells[4].Value = qty * price;
-        }
-
-        //Get QTY Input
-        int getQtyBox(int stock, int curStock = 0)
-        {
-            string input = Interaction.InputBox("Insert Quantity",
-                       "Title",
-                       "1".Trim());
-
-            int finalQty = Convert.ToInt32(input) + curStock;
-
-            if (input == "")
-            {
-                return 0;
-            }
-            else if( finalQty > stock)
-            {
-                return stock;
-            }
-            return (finalQty);
-        }
-
         //Get Increment of Sales ID
         string idIncrement()
         {
@@ -96,7 +105,7 @@ namespace SerbaJaya_POS
             {
                 conn.OpenConnection();
 
-                row = conn.ExecuteScalar(query);
+                row = conn.ExecuteScalar(query) + 1;
             }
             catch (Exception ex)
             {
@@ -104,7 +113,6 @@ namespace SerbaJaya_POS
             }
             conn.CloseConnectoin();
 
-            int length = row.ToString().Length;
             int digit = 4;
 
 
@@ -137,12 +145,60 @@ namespace SerbaJaya_POS
             conn.CloseConnectoin();
         }
 
-        void loadPage(string employeeID)
+
+        //----------------------------Handler-----------------------------------
+        void updateSubTotal()
+        {
+            int subtotal = getSubtotal(dgvSales);
+            double Tax = (double) subtotal * 0.11;
+
+            tbSub.Text = subtotal.ToString("N0");
+            tbTax.Text = Tax.ToString("N0");
+
+            tbTotal.Text = (subtotal + Tax).ToString("N0");
+        }
+
+        void updateCells(int qty, int price, DataGridViewRow row)
+        {
+            row.Cells[2].Value = qty;
+            row.Cells[4].Value = qty * price;
+        }
+
+        //Get QTY Input
+        int getQtyBox(int stock, int curStock = 0)
+        {
+            string input = Interaction.InputBox("Insert Quantity",
+                       "Title",
+                       "1".Trim());
+
+            int finalQty = Convert.ToInt32(input) + curStock;
+
+            if (input == "")
+            {
+                return 0;
+            }
+            else if( finalQty > stock)
+            {
+
+                return stock;
+            }
+            return (finalQty);
+        }
+
+        void loadPage()
         {
             tbDate.Text = DateTime.Now.ToString("dd MMMM,yyyy");
             tbID.Text = idIncrement();
             tbCashier.Text = employeeID;
             loadDataItem();
+        }
+
+        void RefreshPage()
+        {
+            dgvSales.Rows.Clear();
+            tbSearch.Clear();
+
+            loadPage();
         }
 
         public Kasir(string ID)
@@ -154,14 +210,30 @@ namespace SerbaJaya_POS
 
         private void Kasir_Load(object sender, EventArgs e)
         {
-            loadPage(employeeID);
+            loadPage();
         }
 
+        //----------------Text Box------------------------
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             loadDataItem(tbSearch.Text);
         }
 
+        private void tbTotal_TextChanged(object sender, EventArgs e)
+        {
+
+            if (Convert.ToDouble(tbTotal.Text) > 0)
+            {
+                btnFinish.Enabled = true;
+            }
+            else
+            {
+                btnFinish.Enabled = false;
+            }
+
+        }
+
+        //----------------------------DataGridView------------------------------------
         private void dgvSales_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             updateSubTotal();
@@ -190,7 +262,7 @@ namespace SerbaJaya_POS
                 e.RowIndex >= 0)
             {
                 int index = dgvItem.CurrentCell.RowIndex;
-                int stock = Convert.ToInt32(dgvItem.Rows[index].Cells[3].Value);
+                int stock = Convert.ToInt32(dgvItem.Rows[index].Cells[4].Value);
 
 
                 string itemID = dgvItem.Rows[index].Cells[1].Value.ToString();
@@ -232,19 +304,18 @@ namespace SerbaJaya_POS
             updateSubTotal();
         }
 
-        private void numDiscount_ValueChanged(object sender, EventArgs e)
-        {
-            updateSubTotal();
-        }
-
         private void dgvSales_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             updateSubTotal();
         }
 
+        //-------------------------------Button------------------------
+
         private void btnFinish_Click(object sender, EventArgs e)
         {
-
+            insertDataSales();
         }
+
+
     }
 }
