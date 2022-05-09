@@ -14,7 +14,7 @@ namespace SerbaJaya_POS
 {
     public partial class ReportMenu : Form
     {
-        //gw gak pake connection.cs
+        //gw gak pake connection.cs ga ngerti
         string constring = "Data Source=LAPTOP-ADU8799N\\SQLEXPRESS;Initial Catalog=visprogw10;Integrated Security= True";
         DataSet DS = new DataSet();
         string vquery = "";
