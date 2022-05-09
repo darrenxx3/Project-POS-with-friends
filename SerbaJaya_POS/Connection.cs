@@ -41,6 +41,12 @@ namespace Connection
             cmd.ExecuteNonQuery();
         }
 
+        public int ExecuteScalar(String Query_)
+        {
+            SqlCommand cmd = new SqlCommand(Query_, conn);
+            return (Int32) cmd.ExecuteScalar();
+        }
+
         public SqlDataReader DataReader(string Query_)
         {
             SqlCommand cmd = new SqlCommand(Query_, conn);
@@ -48,7 +54,7 @@ namespace Connection
             return dr;
         }
 
-        public object ShowDataInGridVIew(string Query_)
+        public object ShowDataInGridView(string Query_)
         {
             SqlDataAdapter dr = new SqlDataAdapter(Query_, ConnectionString);
             DataSet ds = new DataSet();
@@ -56,5 +62,6 @@ namespace Connection
             object dataum = ds.Tables[0];
             return dataum;
         }
+
     }
 }

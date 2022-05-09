@@ -12,12 +12,26 @@ namespace SerbaJaya_POS
 {
     public partial class Parent : Form
     {
-        void loadMenu(String role, string name)
+        public string employeeID, employeeRole, employeeName;
+
+        void loadKasir()
+        {
+            panel1.Controls.Clear();
+            Kasir kasir = new Kasir(employeeID);
+            //kasir.MdiParent = this;
+            kasir.TopLevel = false;
+            kasir.AutoScroll = true;
+            panel1.Controls.Add(kasir);
+            kasir.Show();
+        }
+
+        void loadMenu(string role, string name)
         {
             switch (role)
             {
                 case "Cashier" :
                     stripKasir.Visible = true;
+                    loadKasir();
                     break;
                 case "Warehouse":
                     stripGudang.Visible = true;
@@ -30,15 +44,19 @@ namespace SerbaJaya_POS
             stripUser.Text = name;
         }
 
-        public Parent(String role, string name)
+        public Parent(String role, string name, string id)
         {
             InitializeComponent();
-            loadMenu(role, name);
+            employeeID = id;
+            employeeRole = role;
+            employeeName = name;
         }
 
         private void Parent_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+
+            loadMenu(employeeRole, employeeName);
         }
 
         private void userLogOut_Click(object sender, EventArgs e)
@@ -51,6 +69,11 @@ namespace SerbaJaya_POS
                 login.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void KasirMenu_Click(object sender, EventArgs e)
+        {
+            loadKasir();
         }
     }
 }

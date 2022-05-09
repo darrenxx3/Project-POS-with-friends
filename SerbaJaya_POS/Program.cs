@@ -16,8 +16,7 @@ namespace SerbaJaya_POS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ManagerPurchasing());
-            Application.Run(new ReportMenu());
+            Application.Run(new Login());
         }
     }
 }

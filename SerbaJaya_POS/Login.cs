@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
 using static Connection.Connection_Query;
 
 namespace SerbaJaya_POS
@@ -23,12 +22,6 @@ namespace SerbaJaya_POS
         }
 
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void btnLog_Click(object sender, EventArgs e)
         {
             string username = tbUsername.Text;
@@ -41,7 +34,8 @@ namespace SerbaJaya_POS
                 conn.OpenConnection();
 
                 string query =
-                    "SELECT p.PositionName , e.EmployeeName FROM Employee e " +
+                    "SELECT p.PositionName , e.EmployeeName, e.EmployeeID " +
+                    "FROM Employee e " +
                     "INNER JOIN Position p ON p.PositionID = e.PositionID " +
                     "WHERE e.EmployeeID ='" + tbUsername.Text + "' AND " +
                     "e.Password ='" + tbPassword.Text + "'";
@@ -51,7 +45,7 @@ namespace SerbaJaya_POS
                 if (dr.Read())
                 {
                     this.Hide();
-                    Parent parent = new Parent(dr.GetString(0), dr.GetString(1));
+                    Parent parent = new Parent(dr.GetString(0), dr.GetString(1), dr.GetString(2));
                     parent.ShowDialog();
                     this.Close();
                 }
