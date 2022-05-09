@@ -26,5 +26,21 @@ namespace SerbaJaya_POS
         {
 
         }
+
+        private void PersediaanStok_Load(object sender, EventArgs e)
+        {
+            var conn = new Connection.Connection_Query();
+            conn.OpenConnection();
+            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT ItemID, ItemName, Stock FROM DataItem ORDER BY Stock");
+            conn.CloseConnectoin();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var conn = new Connection.Connection_Query();
+            conn.OpenConnection();
+            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT ItemID, ItemName, Stock FROM DataItem WHERE ItemName LIKE '%" + textBox1.Text + "%' ORDER BY Stock");
+            conn.CloseConnectoin();
+        }
     }
 }
