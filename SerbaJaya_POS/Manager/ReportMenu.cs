@@ -25,10 +25,11 @@ namespace SerbaJaya_POS
             this.WindowState = FormWindowState.Maximized;
         }
 
+
+
         private void ReportMenu_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'uASVisprogDataSet.Employee' table. You can move, or remove it, as needed.
-            //this.employeeTableAdapter.Fill(this.uASVisprogDataSet.Employee);
 
 
         }
@@ -38,9 +39,9 @@ namespace SerbaJaya_POS
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.Positions select x).ToList();
             dataGridView1.DataSource = query;
-      
-            
-            
+
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace SerbaJaya_POS
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.Employees select x).ToList();
             dataGridView1.DataSource = query;
-           
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -56,34 +57,34 @@ namespace SerbaJaya_POS
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.DataItems select x).ToList();
             dataGridView1.DataSource = query;
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.Suppliers select x).ToList();
             dataGridView1.DataSource = query;
-           
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-           
+
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.Sales select x).ToList();
             dataGridView1.DataSource = query;
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-           
+
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.PurchaseOrders select x).ToList();
             dataGridView1.DataSource = query;
-            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -96,12 +97,12 @@ namespace SerbaJaya_POS
             DA.Fill(DS, "posis");
             dataGridView1.DataSource = DS.Tables["posis"];
 
-           
+
         }
     }
 
-
 }
+
         
 
 
