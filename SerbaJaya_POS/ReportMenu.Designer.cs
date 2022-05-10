@@ -359,12 +359,7 @@ namespace SerbaJaya_POS
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            
-            ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 
