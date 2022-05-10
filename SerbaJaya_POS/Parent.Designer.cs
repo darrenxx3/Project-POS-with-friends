@@ -64,7 +64,6 @@
             this.stripUser});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(800, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -149,13 +148,14 @@
             // userProfile
             // 
             this.userProfile.Name = "userProfile";
-            this.userProfile.Size = new System.Drawing.Size(216, 34);
+            this.userProfile.Size = new System.Drawing.Size(270, 34);
             this.userProfile.Text = "Setting Profil";
+            this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // userLogOut
             // 
             this.userLogOut.Name = "userLogOut";
-            this.userLogOut.Size = new System.Drawing.Size(216, 34);
+            this.userLogOut.Size = new System.Drawing.Size(270, 34);
             this.userLogOut.Text = "Log Out";
             this.userLogOut.Click += new System.EventHandler(this.userLogOut_Click);
             // 

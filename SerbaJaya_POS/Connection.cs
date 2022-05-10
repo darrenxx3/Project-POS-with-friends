@@ -13,13 +13,13 @@ namespace Connection
         string ConnectionString =
 
           //VIncent CT
-          //"Data Source = LAPTOP-6ENO241Q\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
+          "Data Source = LAPTOP-6ENO241Q\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
 
           //SK 
           //"Data Source=VIN\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
 
           //DARREN
-          "Data Source=LAPTOP-ADU8799N\\SQLEXPRESS;Initial Catalog=UASVisprog;Integrated Security=True";
+          //"Data Source=LAPTOP-ADU8799N\\SQLEXPRESS;Initial Catalog=UASVisprog;Integrated Security=True";
 
 
         SqlConnection conn;

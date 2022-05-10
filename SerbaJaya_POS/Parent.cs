@@ -14,15 +14,13 @@ namespace SerbaJaya_POS
     {
         public string employeeID, employeeRole, employeeName;
 
-        void loadKasir()
+        void loadForm(Form _form)
         {
             panel1.Controls.Clear();
-            Kasir kasir = new Kasir(employeeID);
-            //kasir.MdiParent = this;
-            kasir.TopLevel = false;
-            kasir.AutoScroll = true;
-            panel1.Controls.Add(kasir);
-            kasir.Show();
+            _form.TopLevel = false;
+            _form.AutoScroll = true;
+            panel1.Controls.Add(_form);
+            _form.Show();
         }
 
         void loadMenu(string role, string name)
@@ -31,7 +29,7 @@ namespace SerbaJaya_POS
             {
                 case "Cashier" :
                     stripKasir.Visible = true;
-                    loadKasir();
+                    loadForm(new Kasir(employeeID));
                     break;
                 case "Warehouse":
                     stripGudang.Visible = true;
@@ -59,6 +57,11 @@ namespace SerbaJaya_POS
             loadMenu(employeeRole, employeeName);
         }
 
+        private void userProfile_Click(object sender, EventArgs e)
+        {
+            loadForm(new SettingProfil(employeeID));
+        }
+
         private void userLogOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);
@@ -73,7 +76,7 @@ namespace SerbaJaya_POS
 
         private void KasirMenu_Click(object sender, EventArgs e)
         {
-            loadKasir();
+            loadForm(new Kasir(employeeID));
         }
     }
 }
