@@ -50,22 +50,21 @@ namespace SerbaJaya_POS
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.uASVisprogDataSet = new SerbaJaya_POS.UASVisprogDataSet();
+           
             this.uASVisprogDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uASVisprogDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.positionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.positionTableAdapter = new SerbaJaya_POS.UASVisprogDataSetTableAdapters.PositionTableAdapter();
+   
             this.positionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button7 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new SerbaJaya_POS.UASVisprogDataSetTableAdapters.EmployeeTableAdapter();
+           
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource)).BeginInit();
@@ -273,17 +272,15 @@ namespace SerbaJaya_POS
             // 
             // uASVisprogDataSet
             // 
-            this.uASVisprogDataSet.DataSetName = "UASVisprogDataSet";
-            this.uASVisprogDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+         
             // 
             // uASVisprogDataSetBindingSource
             // 
-            this.uASVisprogDataSetBindingSource.DataSource = this.uASVisprogDataSet;
-            this.uASVisprogDataSetBindingSource.Position = 0;
+        
             // 
             // uASVisprogDataSetBindingSource1
             // 
-            this.uASVisprogDataSetBindingSource1.DataSource = this.uASVisprogDataSet;
+        
             this.uASVisprogDataSetBindingSource1.Position = 0;
             // 
             // positionBindingSource
@@ -293,7 +290,7 @@ namespace SerbaJaya_POS
             // 
             // positionTableAdapter
             // 
-            this.positionTableAdapter.ClearBeforeFill = true;
+        
             // 
             // positionBindingSource1
             // 
@@ -329,11 +326,11 @@ namespace SerbaJaya_POS
             // employeeBindingSource
             // 
             this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.uASVisprogDataSet;
+          
             // 
             // employeeTableAdapter
             // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
+         
             // 
             // ReportMenu
             // 
@@ -362,7 +359,7 @@ namespace SerbaJaya_POS
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSet)).EndInit();
+            
             ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uASVisprogDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionBindingSource)).EndInit();
@@ -389,7 +386,7 @@ namespace SerbaJaya_POS
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource uASVisprogDataSetBindingSource;
-        private UASVisprogDataSet uASVisprogDataSet;
+  
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -399,12 +396,12 @@ namespace SerbaJaya_POS
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.BindingSource uASVisprogDataSetBindingSource1;
         private System.Windows.Forms.BindingSource positionBindingSource;
-        private UASVisprogDataSetTableAdapters.PositionTableAdapter positionTableAdapter;
+ 
         private System.Windows.Forms.BindingSource positionBindingSource1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource employeeBindingSource;
-        private UASVisprogDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+     
     }
 }
