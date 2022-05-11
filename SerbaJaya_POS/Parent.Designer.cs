@@ -65,7 +65,7 @@
             this.stripUser});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 36);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,7 +144,7 @@
             this.changePasswordToolStripMenuItem,
             this.userLogOut});
             this.stripUser.Name = "stripUser";
-            this.stripUser.Size = new System.Drawing.Size(115, 29);
+            this.stripUser.Size = new System.Drawing.Size(115, 32);
             this.stripUser.Text = "Nama User";
             // 
             // userProfile
@@ -177,6 +177,7 @@
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // Parent
             // 

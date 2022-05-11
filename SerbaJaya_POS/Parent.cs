@@ -62,6 +62,11 @@ namespace SerbaJaya_POS
             loadForm(new SettingProfil(employeeID));
         }
 
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new ChangePassword(employeeID));
+        }
+
         private void userLogOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);

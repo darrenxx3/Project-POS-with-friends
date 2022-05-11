@@ -22,7 +22,7 @@ namespace SerbaJaya_POS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(tbCurrent.Text != "" && tbPass.Text != "" && tbCurrent.Text != "")
+            if (tbCurrent.Text != "" && tbPass.Text != "" && tbCurrent.Text != "")
             {
 
                 var conn = new Connection.Connection_Query();
@@ -33,34 +33,44 @@ namespace SerbaJaya_POS
                     string queryCheck = "Select Password FROM Employee WHERE " +
                         $"EmployeeID = '{EmployeeID}' AND Password = '{tbCurrent.Text}' ";
 
-                    conn.ExecuteQueires(queryCheck);
+                    var dr = conn.DataReader(queryCheck);
 
-                    //Cek apakah password sama
-                    if(tbPass.Text == tbCurrent.Text)
+                    if (dr.Read())
                     {
-                        string queryChange = "UPDATE Employee SET " +
-                            $"Password = '{tbCurrent.Text}' " +
-                            $"WHERE EmployeeID = '{EmployeeID}' ";
+                        conn.CloseConnectoin();
+                        //Cek apakah password sama
+                        if (tbPass.Text == tbNewPass.Text)
+                        {
+                            string queryChange = "UPDATE Employee SET " +
+                                $"Password = '{tbCurrent.Text}' " +
+                                $"WHERE EmployeeID = '{EmployeeID}' ";
 
-                        conn.ExecuteQueires(queryChange);
-                        MessageBox.Show("Ganti Password Berhasil!");
+                            conn.ExecuteQueires(queryChange);
+                            MessageBox.Show("Ganti Password Berhasil!");
 
-                        this.Close();
+                            conn.CloseConnectoin();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Pastikan password baru yang anda masukan sama.");
+                            tbNewPass.Focus();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Pastikan password baru yang anda masukan sama.");
+                        MessageBox.Show("Password yang anda masukan salah!");
+                        tbCurrent.Focus();
                     }
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Password yang ada masukan salah, harap coba lagi.");
+                    MessageBox.Show("Database Error", ex.ToString());
                 }
             }
             else
             {
-                MessageBox.Show("Harap isi semua data terlebih dahulu.");
+                //MessageBox.Show("Harap isi semua data terlebih dahulu.");
             }
         }
     }

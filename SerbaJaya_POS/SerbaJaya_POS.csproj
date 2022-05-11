@@ -55,6 +55,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSupplier.Designer.cs">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataItem.Designer.cs" />
+    <Compile Include="DataSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataSupplier.Designer.cs" />
     <Compile Include="profile\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +120,14 @@
     <Compile Include="profile\SettingProfile.Designer.cs">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSupplier.resx">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataItem.resx" />
+    <EmbeddedResource Include="DataSupplier.resx" />
     <EmbeddedResource Include="kasir\Kasir.resx">
       <DependentUpon>Kasir.cs</DependentUpon>
     </EmbeddedResource>
