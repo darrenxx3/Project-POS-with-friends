@@ -7,17 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;// untuk mendapatkan koneksi alternatif
+using static Connection.Connection_Query;
 
 namespace SerbaJaya_POS
 {
     public partial class ReportMenu : Form
     {
-        //gw gak pake connection.cs ga ngerti
-        string constring = "Data Source = LAPTOP-6ENO241Q\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
-        DataSet DS = new DataSet();
-        string vquery = "";
+
+        void loadEmployee(
+            string ID = null, 
+            string nama = null,
+            string role = null
+        )
+        {
+            string query = 
+                "SELECT E.*, P.PositionName FROM Employee E " +
+                "INNER JOIN Position P " +
+                "ON P.PositionID = E.PositionID " +
+                $"WHERE (EmployeeID IS NULL OR EmployeeID like '%{ID}%') OR " +
+                $"(EmployeeName IS NULL OR EmployeeName like '%{nama}%') OR" +
+                $"(PositionName IS NULL OR PositionName like '%{role}%')";
+
+            MessageBox.Show(query);
+
+            loadDataItem(query);
+        }
+
+        void loadDataItem(string query)
+        {
+            
+            var conn = new Connection.Connection_Query();
+
+            try
+            {
+                conn.OpenConnection();
+                dgvReport.DataSource = conn.ShowDataInGridView(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tidak ada data dari Database, harap hubungi admin." + ex.ToString());
+            }
+
+            conn.CloseConnectoin();
+        }
 
         public ReportMenu()
         {
@@ -25,85 +57,42 @@ namespace SerbaJaya_POS
             this.WindowState = FormWindowState.Maximized;
         }
 
-
-
         private void ReportMenu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'uASVisprogDataSet.Employee' table. You can move, or remove it, as needed.
-
-
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void tabControlReport_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try { 
-            DataClasses1DataContext DB = new DataClasses1DataContext();
-            var query = (from x in DB.Positions select x).ToList();
-            dataGridView1.DataSource = query;
-
-            }
-            catch(Exception ex)
+            switch (tabControlReport.SelectedIndex)
             {
-                MessageBox.Show(ex.ToString());
+
+                case 0:
+                    {
+                        loadEmployee();
+                        break;
+                    }
+                case 1:
+                    {
+                        loadDataItem("DataItem");
+                        break;
+                    }
+                case 2:
+                    {
+                        loadDataItem("Supplier");
+                        break;
+                    }
+                case 3:
+                    {
+                        loadDataItem("Sales");
+                        break;
+                    }
+                case 4:
+                    {
+                        loadDataItem("PurchaseOrder");
+                        break;
+                    }
             }
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DataClasses1DataContext DB = new DataClasses1DataContext();
-            var query = (from x in DB.Employees select x).ToList();
-            dataGridView1.DataSource = query;
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DataClasses1DataContext DB = new DataClasses1DataContext();
-            var query = (from x in DB.DataItems select x).ToList();
-            dataGridView1.DataSource = query;
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-            DataClasses1DataContext DB = new DataClasses1DataContext();
-            var query = (from x in DB.Suppliers select x).ToList();
-            dataGridView1.DataSource = query;
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-            DataClasses1DataContext DB = new DataClasses1DataContext();
-            var query = (from x in DB.Sales select x).ToList();
-            dataGridView1.DataSource = query;
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-            DataClasses1DataContext DB = new DataClasses1DataContext();
-            var query = (from x in DB.PurchaseOrders select x).ToList();
-            dataGridView1.DataSource = query;
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            SqlConnection conn = new SqlConnection(constring);
-            conn.Open();
-            DS.Clear();
-            vquery = "select * from Position where PositionName like '%" + textBox1.Text + "%'";
-            SqlDataAdapter DA = new SqlDataAdapter(vquery, conn);
-            DA.Fill(DS, "posis");
-            dataGridView1.DataSource = DS.Tables["posis"];
-
-
         }
     }
 
