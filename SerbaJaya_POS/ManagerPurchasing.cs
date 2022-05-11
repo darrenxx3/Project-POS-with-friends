@@ -56,6 +56,7 @@ namespace SerbaJaya_POS
         
         private void textBoxPOID_Leave(object sender, EventArgs e)
         {
+            //apabila po id sudah pernah dibuat, maka tampilkan datagridview berisikan data po id tsb
             /*
             var conn = new Connection.Connection_Query();
             try
