@@ -44,6 +44,7 @@
             this.userProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.userLogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,6 +141,7 @@
             this.stripUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.stripUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userProfile,
+            this.changePasswordToolStripMenuItem,
             this.userLogOut});
             this.stripUser.Name = "stripUser";
             this.stripUser.Size = new System.Drawing.Size(115, 29);
@@ -169,6 +171,12 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 412);
             this.panel1.TabIndex = 3;
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
             // 
             // Parent
             // 
@@ -206,6 +214,7 @@
         private System.Windows.Forms.ToolStripMenuItem userProfile;
         private System.Windows.Forms.ToolStripMenuItem userLogOut;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
     }
 }
 

@@ -36,13 +36,15 @@
             this.tbAlamat = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(318, 137);
+            this.label1.Location = new System.Drawing.Point(317, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
@@ -52,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(296, 197);
+            this.label2.Location = new System.Drawing.Point(295, 241);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 26);
             this.label2.TabIndex = 1;
@@ -62,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(308, 247);
+            this.label3.Location = new System.Drawing.Point(307, 291);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 26);
             this.label3.TabIndex = 2;
@@ -71,7 +73,7 @@
             // tbNama
             // 
             this.tbNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNama.Location = new System.Drawing.Point(430, 134);
+            this.tbNama.Location = new System.Drawing.Point(429, 178);
             this.tbNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbNama.Name = "tbNama";
             this.tbNama.Size = new System.Drawing.Size(382, 32);
@@ -80,7 +82,7 @@
             // tbTelp
             // 
             this.tbTelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelp.Location = new System.Drawing.Point(430, 194);
+            this.tbTelp.Location = new System.Drawing.Point(429, 238);
             this.tbTelp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbTelp.Name = "tbTelp";
             this.tbTelp.Size = new System.Drawing.Size(226, 32);
@@ -89,7 +91,7 @@
             // tbAlamat
             // 
             this.tbAlamat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAlamat.Location = new System.Drawing.Point(430, 244);
+            this.tbAlamat.Location = new System.Drawing.Point(429, 288);
             this.tbAlamat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbAlamat.Multiline = true;
             this.tbAlamat.Name = "tbAlamat";
@@ -99,7 +101,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(519, 424);
+            this.btnSave.Location = new System.Drawing.Point(520, 454);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(119, 43);
@@ -118,11 +120,33 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Profile Data";
             // 
+            // tbID
+            // 
+            this.tbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbID.Location = new System.Drawing.Point(429, 126);
+            this.tbID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(382, 32);
+            this.tbID.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(354, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 26);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "ID";
+            // 
             // SettingProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 539);
+            this.Controls.Add(this.tbID);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tbAlamat);
@@ -150,5 +174,7 @@
         private System.Windows.Forms.TextBox tbAlamat;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label label5;
     }
 }

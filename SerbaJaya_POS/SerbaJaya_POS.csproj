@@ -55,12 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilterEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FilterEmployee.Designer.cs">
-      <DependentUpon>FilterEmployee.cs</DependentUpon>
-    </Compile>
     <Compile Include="profile\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,15 +62,10 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="DataClasses1.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Kasir.cs">
+    <Compile Include="kasir\Kasir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kasir.Designer.cs">
+    <Compile Include="kasir\Kasir.Designer.cs">
       <DependentUpon>Kasir.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -111,10 +100,7 @@
     <Compile Include="profile\SettingProfile.Designer.cs">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FilterEmployee.resx">
-      <DependentUpon>FilterEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Kasir.resx">
+    <EmbeddedResource Include="kasir\Kasir.resx">
       <DependentUpon>Kasir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -125,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="profile\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -142,14 +131,6 @@
     <EmbeddedResource Include="profile\SettingProfile.resx">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataClasses1.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gudang\" />
-    <Folder Include="kasir\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\report1.jpg" />
