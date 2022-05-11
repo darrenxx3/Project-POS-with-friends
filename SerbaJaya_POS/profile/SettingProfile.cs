@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Connection.Connection_Query;
-using System.
 
 namespace SerbaJaya_POS
 {

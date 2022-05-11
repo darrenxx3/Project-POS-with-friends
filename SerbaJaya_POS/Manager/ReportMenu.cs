@@ -15,7 +15,7 @@ namespace SerbaJaya_POS
     public partial class ReportMenu : Form
     {
         //gw gak pake connection.cs ga ngerti
-        string constring = "Data Source=LAPTOP-ADU8799N\\SQLEXPRESS;Initial Catalog=visprogw10;Integrated Security= True";
+        string constring = "Data Source = LAPTOP-6ENO241Q\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
         DataSet DS = new DataSet();
         string vquery = "";
 
@@ -36,10 +36,16 @@ namespace SerbaJaya_POS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try { 
             DataClasses1DataContext DB = new DataClasses1DataContext();
             var query = (from x in DB.Positions select x).ToList();
             dataGridView1.DataSource = query;
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
 
         }

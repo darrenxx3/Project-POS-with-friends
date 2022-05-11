@@ -67,10 +67,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
-    <Compile Include="kasir\Kasir.cs">
+    <Compile Include="Kasir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kasir\Kasir.Designer.cs">
+    <Compile Include="Kasir.Designer.cs">
       <DependentUpon>Kasir.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gudang\" />
+    <Folder Include="kasir\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model1.Context.tt">
