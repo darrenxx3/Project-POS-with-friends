@@ -75,17 +75,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataSupplier.Designer.cs" />
-    <Compile Include="profile\ChangePassword.cs">
+    <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="profile\ChangePassword.Designer.cs">
+    <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="kasir\Kasir.cs">
+    <Compile Include="Kasir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kasir\Kasir.Designer.cs">
+    <Compile Include="Kasir.Designer.cs">
       <DependentUpon>Kasir.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -94,10 +94,10 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager\ManagerPurchasing.cs">
+    <Compile Include="ManagerPurchasing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\ManagerPurchasing.Designer.cs">
+    <Compile Include="ManagerPurchasing.Designer.cs">
       <DependentUpon>ManagerPurchasing.cs</DependentUpon>
     </Compile>
     <Compile Include="Parent.cs">
@@ -108,16 +108,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Manager\ReportMenu.cs">
+    <Compile Include="ReportMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manager\ReportMenu.Designer.cs">
+    <Compile Include="ReportMenu.Designer.cs">
       <DependentUpon>ReportMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="profile\SettingProfile.cs">
+    <Compile Include="SettingProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="profile\SettingProfile.Designer.cs">
+    <Compile Include="SettingProfile.Designer.cs">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddItem.resx">
@@ -128,19 +128,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataItem.resx" />
     <EmbeddedResource Include="DataSupplier.resx" />
-    <EmbeddedResource Include="kasir\Kasir.resx">
+    <EmbeddedResource Include="Kasir.resx">
       <DependentUpon>Kasir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager\ManagerPurchasing.resx">
+    <EmbeddedResource Include="ManagerPurchasing.resx">
       <DependentUpon>ManagerPurchasing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="profile\ChangePassword.resx">
+    <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -153,10 +153,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Manager\ReportMenu.resx">
+    <EmbeddedResource Include="ReportMenu.resx">
       <DependentUpon>ReportMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="profile\SettingProfile.resx">
+    <EmbeddedResource Include="SettingProfile.resx">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -175,6 +175,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gudang\" />
+    <Folder Include="kasir\" />
+    <Folder Include="Manager\" />
+    <Folder Include="profile\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\report1.jpg" />
