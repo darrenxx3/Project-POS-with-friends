@@ -99,7 +99,7 @@ namespace SerbaJaya_POS
             }
         }
 
-        void handleStatus(string status)
+        void handleStatus(string status, string itemID)
         {
 
             var conn = new Connection.Connection_Query();
@@ -107,9 +107,11 @@ namespace SerbaJaya_POS
             conn.OpenConnection();
             try
             {
-                string queryUpdtDisc = $"Update DataItem SET IsDiscontinued = '{status}' ";
+                string queryUpdtDisc = $"Update DataItem SET IsDiscontinued = '{status}' WHERE itemID = '{itemID}' ";
                 conn.ExecuteQueires(queryUpdtDisc);
-                MessageBox.Show("data berhasil di non-aktifkan!");
+                MessageBox.Show("status berhasil diperbarui!");
+
+                refreshForm();
             }
             catch (Exception ex2)
             {
@@ -145,13 +147,13 @@ namespace SerbaJaya_POS
                    "Confirmation", MessageBoxButtons.YesNo);
                     if (confirmDisc == DialogResult.Yes)
                     {
-                        handleStatus("true");
+                        handleStatus("true", itemID);
                     }
                 }
             }
         }
 
-        string selectStr = "ItemID, itemName, Cost, SalesPrice, Stock, Descriptions, IsDiscontinued";
+        string selectStr = "ItemID, itemName, Cost, SalesPrice, Stock, Descriptions";
         void loadData(string filter = null)
         {
             var conn = new Connection.Connection_Query();
@@ -353,11 +355,15 @@ namespace SerbaJaya_POS
             if (currentColumn is DataGridViewButtonColumn &&
                e.RowIndex >= 0)
             {
+                DataGridViewRow row = dgvItemDisc.Rows[e.RowIndex];
+                string id = row.Cells[1].Value.ToString();
+
                 DialogResult confirmDisc = MessageBox.Show("Aktifkan item kembali?",
                    "Confirmation", MessageBoxButtons.YesNo);
                 if (confirmDisc == DialogResult.Yes)
                 {
-                    handleStatus("false");
+                    MessageBox.Show(id);
+                    handleStatus("false", id);
                 }
             }
 
