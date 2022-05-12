@@ -77,6 +77,11 @@ namespace SerbaJaya_POS
 
         }
 
+        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new AddItem());
+        }
+
         private void userLogOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);

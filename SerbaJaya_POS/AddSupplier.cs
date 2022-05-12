@@ -227,7 +227,7 @@ namespace SerbaJaya_POS
             if (currentColumn is DataGridViewButtonColumn &&
                e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvSupplier.Rows[e.ColumnIndex];
+                DataGridViewRow row = dgvSupplier.Rows[e.RowIndex];
 
                 string id = row.Cells[2].Value.ToString();
                 string nama = row.Cells[3].Value.ToString();

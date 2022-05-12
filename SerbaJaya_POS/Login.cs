@@ -37,8 +37,9 @@ namespace SerbaJaya_POS
                     "SELECT p.PositionName , e.EmployeeName, e.EmployeeID " +
                     "FROM Employee e " +
                     "INNER JOIN Position p ON p.PositionID = e.PositionID " +
-                    "WHERE e.EmployeeID ='" + tbUsername.Text + "' AND " +
-                    "e.Password ='" + tbPassword.Text + "'";
+                    $"WHERE e.EmployeeID ='{tbUsername.Text }' AND " +
+                    $"e.Password ='{tbPassword.Text }' AND" +
+                    " e.IsNotEmployee = 'false' ";
 
                 SqlDataReader dr = conn.DataReader(query);
 
