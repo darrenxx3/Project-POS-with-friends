@@ -21,7 +21,7 @@ namespace SerbaJaya_POS
         {
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
-            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT ItemID, ItemName, Cost FROM DataItem ORDER BY ItemID");
+            dataGridView1.DataSource = conn.ShowDataInGridView("SELECT ItemID, ItemName, Cost FROM DataItem ORDER BY ItemID");
             conn.CloseConnectoin();
         }
 
@@ -29,7 +29,7 @@ namespace SerbaJaya_POS
         {
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
-            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT ItemID, ItemName, Cost FROM DataItem WHERE ItemName LIKE '%" + textBox1.Text + "%'");
+            dataGridView1.DataSource = conn.ShowDataInGridView("SELECT ItemID, ItemName, Cost FROM DataItem WHERE ItemName LIKE '%" + textBox1.Text + "%'");
             conn.CloseConnectoin();
         }
 

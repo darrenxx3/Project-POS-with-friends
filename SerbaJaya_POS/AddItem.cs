@@ -23,7 +23,7 @@ namespace SerbaJaya_POS
         {
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
-            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT * FROM DataItem ORDER BY ItemID");
+            dataGridView1.DataSource = conn.ShowDataInGridView("SELECT * FROM DataItem ORDER BY ItemID");
             conn.CloseConnectoin();
         }
 

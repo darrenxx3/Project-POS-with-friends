@@ -32,14 +32,14 @@ namespace SerbaJaya_POS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PersediaanStok persediaanStok = new PersediaanStok();
-            persediaanStok.Show();
+            /*PersediaanStok persediaanStok = new PersediaanStok();
+            persediaanStok.Show();*/
         }
         private void ManagerPurchasing_Load(object sender, EventArgs e)
         {
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
-            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT OrderDate, PO.SupplierID, SupplierName, POD.ItemID, ItemName, Cost ,Quantity FROM PurchaseOrderDetail POD JOIN PurchaseOrder PO ON POD.PurchaseOrderID = PO.PurchaseOrderID JOIN DataItem DI ON POD.ItemID = DI.ItemID JOIN Supplier S ON PO.SupplierID = S.SupplierID WHERE POD.PurchaseOrderID = '" + textBoxPOID + "'");
+            dataGridView1.DataSource = conn.ShowDataInGridView("SELECT OrderDate, PO.SupplierID, SupplierName, POD.ItemID, ItemName, Cost ,Quantity FROM PurchaseOrderDetail POD JOIN PurchaseOrder PO ON POD.PurchaseOrderID = PO.PurchaseOrderID JOIN DataItem DI ON POD.ItemID = DI.ItemID JOIN Supplier S ON PO.SupplierID = S.SupplierID WHERE POD.PurchaseOrderID = '" + textBoxPOID + "'");
             conn.CloseConnectoin();
         }        
         private void btnSearchSupplier_Click(object sender, EventArgs e)

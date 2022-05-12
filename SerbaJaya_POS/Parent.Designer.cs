@@ -42,9 +42,11 @@
             this.managerReport = new System.Windows.Forms.ToolStripMenuItem();
             this.stripUser = new System.Windows.Forms.ToolStripMenuItem();
             this.userProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userLogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSupplier = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +67,7 @@
             this.stripUser});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,7 +114,8 @@
             this.stripManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.managerEmployee,
             this.managerPurchase,
-            this.managerReport});
+            this.managerReport,
+            this.addDataToolStripMenuItem});
             this.stripManager.Name = "stripManager";
             this.stripManager.Size = new System.Drawing.Size(98, 29);
             this.stripManager.Text = "Manager";
@@ -121,19 +124,19 @@
             // managerEmployee
             // 
             this.managerEmployee.Name = "managerEmployee";
-            this.managerEmployee.Size = new System.Drawing.Size(242, 34);
+            this.managerEmployee.Size = new System.Drawing.Size(270, 34);
             this.managerEmployee.Text = "Menu Employee";
             // 
             // managerPurchase
             // 
             this.managerPurchase.Name = "managerPurchase";
-            this.managerPurchase.Size = new System.Drawing.Size(242, 34);
+            this.managerPurchase.Size = new System.Drawing.Size(270, 34);
             this.managerPurchase.Text = "Menu Purchase";
             // 
             // managerReport
             // 
             this.managerReport.Name = "managerReport";
-            this.managerReport.Size = new System.Drawing.Size(242, 34);
+            this.managerReport.Size = new System.Drawing.Size(270, 34);
             this.managerReport.Text = "Cetak Report";
             // 
             // stripUser
@@ -144,20 +147,27 @@
             this.changePasswordToolStripMenuItem,
             this.userLogOut});
             this.stripUser.Name = "stripUser";
-            this.stripUser.Size = new System.Drawing.Size(115, 32);
+            this.stripUser.Size = new System.Drawing.Size(115, 29);
             this.stripUser.Text = "Nama User";
             // 
             // userProfile
             // 
             this.userProfile.Name = "userProfile";
-            this.userProfile.Size = new System.Drawing.Size(270, 34);
+            this.userProfile.Size = new System.Drawing.Size(254, 34);
             this.userProfile.Text = "Setting Profil";
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // userLogOut
             // 
             this.userLogOut.Name = "userLogOut";
-            this.userLogOut.Size = new System.Drawing.Size(270, 34);
+            this.userLogOut.Size = new System.Drawing.Size(254, 34);
             this.userLogOut.Text = "Log Out";
             this.userLogOut.Click += new System.EventHandler(this.userLogOut_Click);
             // 
@@ -171,13 +181,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 412);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // changePasswordToolStripMenuItem
+            // addDataToolStripMenuItem
             // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            this.addDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSupplier});
+            this.addDataToolStripMenuItem.Name = "addDataToolStripMenuItem";
+            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addDataToolStripMenuItem.Text = "Menu";
+            // 
+            // menuSupplier
+            // 
+            this.menuSupplier.Name = "menuSupplier";
+            this.menuSupplier.Size = new System.Drawing.Size(270, 34);
+            this.menuSupplier.Text = "Supplier";
+            this.menuSupplier.Click += new System.EventHandler(this.menuSupplier_Click);
             // 
             // Parent
             // 
@@ -216,6 +235,8 @@
         private System.Windows.Forms.ToolStripMenuItem userLogOut;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuSupplier;
     }
 }
 

@@ -20,14 +20,14 @@ namespace SerbaJaya_POS
         {
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
-            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT SupplierID, SupplierName FROM Supplier ORDER BY SupplierID");
+            dataGridView1.DataSource = conn.ShowDataInGridView("SELECT SupplierID, SupplierName FROM Supplier ORDER BY SupplierID");
             conn.CloseConnectoin();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
-            dataGridView1.DataSource = conn.ShowDataInGridVIew("SELECT SupplierID, SupplierName FROM Supplier WHERE SupplierName LIKE '%" + textBox1.Text + "%'");
+            dataGridView1.DataSource = conn.ShowDataInGridView("SELECT SupplierID, SupplierName FROM Supplier WHERE SupplierName LIKE '%" + textBox1.Text + "%'");
             conn.CloseConnectoin();
         }
 
