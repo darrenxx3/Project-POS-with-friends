@@ -87,6 +87,11 @@ namespace SerbaJaya_POS
             loadForm(new Inventory());
         }
 
+        private void menuEmployee_Click(object sender, EventArgs e)
+        {
+            loadForm(new AdminEmployee());
+        }
+
         private void userLogOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);

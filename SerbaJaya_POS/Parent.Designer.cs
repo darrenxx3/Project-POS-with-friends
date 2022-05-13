@@ -47,6 +47,7 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userLogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.menuEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,14 +101,14 @@
             // inventoryList
             // 
             this.inventoryList.Name = "inventoryList";
-            this.inventoryList.Size = new System.Drawing.Size(270, 34);
+            this.inventoryList.Size = new System.Drawing.Size(258, 34);
             this.inventoryList.Text = "Inventory List";
             this.inventoryList.Click += new System.EventHandler(this.inventoryList_Click);
             // 
             // gudangKonfirmasi
             // 
             this.gudangKonfirmasi.Name = "gudangKonfirmasi";
-            this.gudangKonfirmasi.Size = new System.Drawing.Size(270, 34);
+            this.gudangKonfirmasi.Size = new System.Drawing.Size(258, 34);
             this.gudangKonfirmasi.Text = "Konfirmasi Barang";
             // 
             // stripManager
@@ -124,35 +125,36 @@
             // managerPurchase
             // 
             this.managerPurchase.Name = "managerPurchase";
-            this.managerPurchase.Size = new System.Drawing.Size(234, 34);
+            this.managerPurchase.Size = new System.Drawing.Size(270, 34);
             this.managerPurchase.Text = "Menu Purchase";
             // 
             // managerReport
             // 
             this.managerReport.Name = "managerReport";
-            this.managerReport.Size = new System.Drawing.Size(234, 34);
+            this.managerReport.Size = new System.Drawing.Size(270, 34);
             this.managerReport.Text = "Cetak Report";
             // 
             // addDataToolStripMenuItem
             // 
             this.addDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSupplier,
-            this.itemToolStripMenuItem});
+            this.itemToolStripMenuItem,
+            this.menuEmployee});
             this.addDataToolStripMenuItem.Name = "addDataToolStripMenuItem";
-            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
+            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.addDataToolStripMenuItem.Text = "Menu";
             // 
             // menuSupplier
             // 
             this.menuSupplier.Name = "menuSupplier";
-            this.menuSupplier.Size = new System.Drawing.Size(179, 34);
+            this.menuSupplier.Size = new System.Drawing.Size(270, 34);
             this.menuSupplier.Text = "Supplier";
             this.menuSupplier.Click += new System.EventHandler(this.menuSupplier_Click);
             // 
             // itemToolStripMenuItem
             // 
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(179, 34);
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.itemToolStripMenuItem.Text = "Item";
             this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
@@ -200,6 +202,13 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // menuEmployee
+            // 
+            this.menuEmployee.Name = "menuEmployee";
+            this.menuEmployee.Size = new System.Drawing.Size(270, 34);
+            this.menuEmployee.Text = "Employee";
+            this.menuEmployee.Click += new System.EventHandler(this.menuEmployee_Click);
+            // 
             // Parent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -239,6 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem addDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuSupplier;
         private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuEmployee;
     }
 }
 

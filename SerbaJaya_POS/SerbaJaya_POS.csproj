@@ -132,6 +132,9 @@
     <Compile Include="SettingProfile.Designer.cs">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminEmployee.resx">
+      <DependentUpon>AdminEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminItem.resx">
       <DependentUpon>AdminItem.cs</DependentUpon>
     </EmbeddedResource>

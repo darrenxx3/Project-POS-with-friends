@@ -285,7 +285,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1173, 639);
+            this.tabPage2.Size = new System.Drawing.Size(1173, 673);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Discontinued";
             this.tabPage2.UseVisualStyleBackColor = true;
