@@ -69,7 +69,7 @@ namespace SerbaJaya_POS
 
         private void menuSupplier_Click(object sender, EventArgs e)
         {
-            loadForm(new AddSupplier());
+            loadForm(new AdminSupplier());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -79,7 +79,12 @@ namespace SerbaJaya_POS
 
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new AddItem());
+            loadForm(new AdminItem());
+        }
+
+        private void inventoryList_Click(object sender, EventArgs e)
+        {
+            loadForm(new Inventory());
         }
 
         private void userLogOut_Click(object sender, EventArgs e)

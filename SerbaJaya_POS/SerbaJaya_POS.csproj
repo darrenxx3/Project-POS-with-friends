@@ -55,17 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItem.cs">
+    <Compile Include="AdminEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItem.Designer.cs">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <Compile Include="AdminEmployee.Designer.cs">
+      <DependentUpon>AdminEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSupplier.cs">
+    <Compile Include="AdminItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSupplier.Designer.cs">
-      <DependentUpon>AddSupplier.cs</DependentUpon>
+    <Compile Include="AdminItem.Designer.cs">
+      <DependentUpon>AdminItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSupplier.Designer.cs">
+      <DependentUpon>AdminSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="DataItem.cs">
       <SubType>Form</SubType>
@@ -82,6 +88,12 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
+    <Compile Include="Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kasir.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,14 +132,17 @@
     <Compile Include="SettingProfile.Designer.cs">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddItem.resx">
-      <DependentUpon>AddItem.cs</DependentUpon>
+    <EmbeddedResource Include="AdminItem.resx">
+      <DependentUpon>AdminItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddSupplier.resx">
-      <DependentUpon>AddSupplier.cs</DependentUpon>
+    <EmbeddedResource Include="AdminSupplier.resx">
+      <DependentUpon>AdminSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataItem.resx" />
     <EmbeddedResource Include="DataSupplier.resx" />
+    <EmbeddedResource Include="Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kasir.resx">
       <DependentUpon>Kasir.cs</DependentUpon>
     </EmbeddedResource>

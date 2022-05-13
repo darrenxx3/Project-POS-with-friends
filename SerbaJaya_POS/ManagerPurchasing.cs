@@ -20,13 +20,13 @@ namespace SerbaJaya_POS
         }
         private void addItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddItem vitem = new AddItem();
+            AdminItem vitem = new AdminItem();
             vitem.Show();
         }
 
         private void addSupplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddSupplier vsupplier = new AddSupplier();
+            AdminSupplier vsupplier = new AdminSupplier();
             vsupplier.Show();
         }
 

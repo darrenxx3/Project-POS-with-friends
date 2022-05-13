@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Connection.Connection_Query;
-using System.Data.SqlClient;
 
 namespace SerbaJaya_POS
 {
-    public partial class AddItem : Form
+    public partial class AdminSupplier : Form
     {
+
         string idIncrement()
         {
             var conn = new Connection.Connection_Query();
             string query =
-                "SELECT TOP 1 * FROM DataItem ORDER BY ItemID DESC";
+                "SELECT TOP 1 * FROM Supplier ORDER BY SupplierID DESC";
 
             int temp = 0;
 
@@ -43,10 +43,9 @@ namespace SerbaJaya_POS
             conn.CloseConnectoin();
 
             int digit = 3;
-
             int increment = temp + 1;
 
-            var id = $"MK{increment.ToString().PadLeft(digit, '0')}";
+            var id = $"SS{increment.ToString().PadLeft(digit, '0')}";
 
             return id;
         }
@@ -58,10 +57,9 @@ namespace SerbaJaya_POS
 
             try
             {
-                string query = "INSERT INTO DataItem " +
-                    "(ItemID, ItemName, Cost, SalesPrice, Stock, Descriptions, IsDiscontinued)" +
-                    $"VALUES('{tbID.Text}', '{tbName.Text}', '{tbCost.Text}', '{tbPrice.Text}', " +
-                    $" '{tbStock.Text}', '{tbDesc.Text}', 'false' )";
+                string query = "INSERT INTO Supplier " +
+                    "(SupplierID, SupplierName, SupplierAddress, SupplierPhone, IsActive)" +
+                    $"VALUES('{tbID.Text}', '{tbName.Text}', '{tbAddress.Text}', '{tbPhone.Text}', 'true')";
 
                 conn.ExecuteQueires(query);
 
@@ -81,13 +79,11 @@ namespace SerbaJaya_POS
 
             try
             {
-                string query = "UPDATE DataItem " +
-                    $"SET ItemName = '{tbName.Text}', " +
-                    $"Cost = '{tbCost.Text}'," +
-                    $"SalesPrice = '{tbPrice.Text}'," +
-                    $"Stock = '{tbStock.Text}', " +
-                    $"Descriptions = '{tbDesc.Text}' " +
-                    $"WHERE ItemID = '{tbID.Text}' ";
+                string query = "UPDATE Supplier " +
+                    $"SET SupplierName = '{tbName.Text}', " +
+                    $"SupplierAddress = '{tbAddress.Text}', " +
+                    $"SupplierPhone = '{tbPhone.Text}' " +
+                    $"WHERE SupplierID = '{tbID.Text}' ";
 
                 conn.ExecuteQueires(query);
                 MessageBox.Show("Data Berhasil di update!");
@@ -99,7 +95,7 @@ namespace SerbaJaya_POS
             }
         }
 
-        void handleStatus(string status, string itemID)
+        void handleStatus(string status, string ID)
         {
 
             var conn = new Connection.Connection_Query();
@@ -107,7 +103,7 @@ namespace SerbaJaya_POS
             conn.OpenConnection();
             try
             {
-                string queryUpdtDisc = $"Update DataItem SET IsDiscontinued = '{status}' WHERE itemID = '{itemID}' ";
+                string queryUpdtDisc = $"Update Supplier SET IsActive = '{status}' WHERE SupplierID = '{ID}' ";
                 conn.ExecuteQueires(queryUpdtDisc);
                 MessageBox.Show("status berhasil diperbarui!");
 
@@ -124,7 +120,7 @@ namespace SerbaJaya_POS
 
         }
 
-        void deleteData(String itemID)
+        void deleteData(String supplierID)
         {
             DialogResult result = MessageBox.Show("Hapus Supplier?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -134,7 +130,7 @@ namespace SerbaJaya_POS
 
                 try
                 {
-                    string query = $"DELETE FROM DataItem WHERE ItemID = '{itemID}' ";
+                    string query = $"DELETE FROM Supplier WHERE SupplierID = '{supplierID}' ";
 
                     conn.ExecuteQueires(query);
                     MessageBox.Show("Supplier berhasil dihapus!");
@@ -147,13 +143,14 @@ namespace SerbaJaya_POS
                    "Confirmation", MessageBoxButtons.YesNo);
                     if (confirmDisc == DialogResult.Yes)
                     {
-                        handleStatus("true", itemID);
+                        handleStatus("false", supplierID);
                     }
                 }
             }
         }
 
-        string selectStr = "ItemID, itemName, Cost, SalesPrice, Stock, Descriptions";
+
+        string selectString = "SupplierID, SupplierName, SupplierAddress, SupplierPhone";
         void loadData(string filter = null)
         {
             var conn = new Connection.Connection_Query();
@@ -161,44 +158,14 @@ namespace SerbaJaya_POS
 
             try
             {
-                string query = $"SELECT {selectStr} FROM DataItem WHERE " +
-                      $"(( ItemID IS NULL OR ItemID LIKE '%{filter}%' ) OR " +
-                    $"( ItemName IS NULL or ItemName LIKE '%{filter}%' ) OR " +
-                    $"( Cost IS NULL or Cost LIKE '%{filter}%' ) OR " +
-                    $"( SalesPrice IS NULL or SalesPrice LIKE '%{filter}%' ) OR " +
-                    $"( Stock IS NULL or Stock LIKE '%{filter}%' ) OR " +
-                    $"( Descriptions IS NULL or Descriptions LIKE '%{filter}%' )) AND " +
-                    $"IsDiscontinued = 'false' ";
+                string query = $"SELECT {selectString} FROM Supplier WHERE " +
+                      $"(( SupplierID IS NULL OR SupplierID LIKE '%{filter}%' ) OR " +
+                    $"( SupplierName IS NULL or SupplierName LIKE '%{filter}%' ) OR " +
+                    $"( SupplierAddress IS NULL or SupplierAddress LIKE '%{filter}%' ) OR " +
+                    $"( SupplierPhone IS NULL or SupplierPhone LIKE '%{filter}%' )) AND " +
+                    $"IsActive = 'true' ";
 
-                dgvItem.DataSource = conn.ShowDataInGridView(query);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.CloseConnectoin();                
-            }
-        }
-
-        void loadDataDisc(string filter = null)
-        {
-            var conn = new Connection.Connection_Query();
-            conn.OpenConnection();
-
-            try
-            {
-                string query = $"SELECT {selectStr} FROM DataItem WHERE " +
-                      $"(( ItemID IS NULL OR ItemID LIKE '%{filter}%' ) OR " +
-                    $"( ItemName IS NULL or ItemName LIKE '%{filter}%' ) OR " +
-                    $"( Cost IS NULL or Cost LIKE '%{filter}%' ) OR " +
-                    $"( SalesPrice IS NULL or SalesPrice LIKE '%{filter}%' ) OR " +
-                    $"( Stock IS NULL or Stock LIKE '%{filter}%' ) OR " +
-                    $"( Descriptions IS NULL or Descriptions LIKE '%{filter}%' )) AND " +
-                    $"IsDiscontinued = 'true' ";
-
-                dgvItemDisc.DataSource = conn.ShowDataInGridView(query);
+                dgvSupplier.DataSource = conn.ShowDataInGridView(query);
             }
             catch (Exception ex)
             {
@@ -210,10 +177,42 @@ namespace SerbaJaya_POS
             }
         }
 
+        void loadDataPast(string filter = null)
+        {
+            var conn = new Connection.Connection_Query();
+            conn.OpenConnection();
+
+            try
+            {
+                string query = $"SELECT {selectString} FROM Supplier WHERE " +
+                      $"(( SupplierID IS NULL OR SupplierID LIKE '%{filter}%' ) OR " +
+                    $"( SupplierName IS NULL or SupplierName LIKE '%{filter}%' ) OR " +
+                    $"( SupplierAddress IS NULL or SupplierAddress LIKE '%{filter}%' ) OR " +
+                    $"( SupplierPhone IS NULL or SupplierPhone LIKE '%{filter}%' )) AND " +
+                    $"IsActive = 'false' ";
+
+                dgvSupplierPast.DataSource = conn.ShowDataInGridView(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnectoin();
+            }
+        }
+
+        public AdminSupplier()
+        {
+            InitializeComponent();
+        }
+
+
+        //checkForm
         bool checkFormEmpty()
         {
-            if (tbName.Text != "" && tbCost.Text != "" && tbPrice.Text != "" &&
-                tbStock.Text != "" && tbDesc.Text != "")
+            if (tbName.Text != "" && tbAddress.Text != "" && tbPhone.Text != "")
             {
                 return false;
             }
@@ -227,12 +226,9 @@ namespace SerbaJaya_POS
         //clearForm
         void clearForm()
         {
-            tbID.Clear();
             tbName.Clear();
-            tbPrice.Clear();
-            tbCost.Clear();
-            tbStock.Clear();
-            tbDesc.Clear();
+            tbAddress.Clear();
+            tbPhone.Clear();
         }
 
         //handle Button
@@ -257,19 +253,12 @@ namespace SerbaJaya_POS
         {
             clearForm();
             tbID.Text = idIncrement();
-            tbStock.Text = "0";
-            tbCost.Text = "0";
             handleButtonUpdate(false);
             loadData();
-            loadDataDisc();
+            loadDataPast();
         }
 
-        public AddItem()
-        {
-            InitializeComponent();
-        }
-
-        private void AddItem_Load(object sender, EventArgs e)
+        private void AddSupplier_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             refreshForm();
@@ -280,7 +269,19 @@ namespace SerbaJaya_POS
             loadData(tbFilter.Text);
         }
 
-        private void dgvItem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (checkFormEmpty() == false)
+            {
+                insertData();
+            }
+            else
+            {
+                MessageBox.Show("Harap isi semua data terlebih dahulu!");
+            }
+        }
+
+        private void dgvSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
             var currentColumn = senderGrid.Columns[e.ColumnIndex];
@@ -288,14 +289,13 @@ namespace SerbaJaya_POS
             if (currentColumn is DataGridViewButtonColumn &&
                e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvItem.Rows[e.RowIndex];
+                DataGridViewRow row = dgvSupplier.Rows[e.RowIndex];
 
                 string id = row.Cells[2].Value.ToString();
                 string nama = row.Cells[3].Value.ToString();
-                string cost = row.Cells[4].Value.ToString();
-                string price = row.Cells[5].Value.ToString();
-                string stock = row.Cells[6].Value.ToString();
-                string desc = row.Cells[7].Value.ToString();
+                string alamat = row.Cells[4].Value.ToString();
+                string phone = row.Cells[5].Value.ToString();
+
 
                 if (currentColumn.HeaderText == "Delete")
                 {
@@ -306,26 +306,11 @@ namespace SerbaJaya_POS
 
                     tbID.Text = id;
                     tbName.Text = nama;
-                    tbCost.Text = cost;
-                    tbPrice.Text = price;
-                    tbStock.Text = stock;
-                    tbDesc.Text = desc;
-
+                    tbAddress.Text = alamat;
+                    tbPhone.Text = phone;
                     handleButtonUpdate(true);
 
                 }
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (checkFormEmpty() == false)
-            {
-                insertData();
-            }
-            else
-            {
-                MessageBox.Show("Harap isi semua data terlebih dahulu");
             }
         }
 
@@ -342,32 +327,30 @@ namespace SerbaJaya_POS
             }
             else
             {
-                MessageBox.Show("Harap isi semua data terlebih dahulu");
+                MessageBox.Show("harap isi semua data terlebih dahulu.");
             }
         }
 
-        private void dgvItemDisc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSupplierPast_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             var senderGrid = (DataGridView)sender;
             var currentColumn = senderGrid.Columns[e.ColumnIndex];
 
             if (currentColumn is DataGridViewButtonColumn &&
                e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvItemDisc.Rows[e.RowIndex];
+                DataGridViewRow row = dgvSupplierPast.Rows[e.RowIndex];
                 string id = row.Cells[1].Value.ToString();
 
-                DialogResult confirmDisc = MessageBox.Show("Aktifkan item kembali?",
-                   "Confirmation", MessageBoxButtons.YesNo);
-                if (confirmDisc == DialogResult.Yes)
-                {
-                    MessageBox.Show(id);
-                    handleStatus("false", id);
-                }
+                handleStatus("true", id);
+                refreshForm();
+
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }
-
 }
