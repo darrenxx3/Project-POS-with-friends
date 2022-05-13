@@ -41,15 +41,23 @@ namespace SerbaJaya_POS
                         //Cek apakah password sama
                         if (tbPass.Text == tbNewPass.Text)
                         {
-                            string queryChange = "UPDATE Employee SET " +
-                                $"Password = '{tbCurrent.Text}' " +
-                                $"WHERE EmployeeID = '{EmployeeID}' ";
+                            try
+                            {
+                                conn.OpenConnection();
+                                string queryChange = "UPDATE Employee SET " +
+                                    $"Password = '{tbCurrent.Text}' " +
+                                    $"WHERE EmployeeID = '{EmployeeID}' ";
 
-                            conn.ExecuteQueires(queryChange);
-                            MessageBox.Show("Ganti Password Berhasil!");
+                                conn.ExecuteQueires(queryChange);
+                                MessageBox.Show("Ganti Password Berhasil!");
 
-                            conn.CloseConnectoin();
-                            this.Close();
+                                conn.CloseConnectoin();
+                                this.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Failed to change password: ", ex.ToString());
+                            }
                         }
                         else
                         {
