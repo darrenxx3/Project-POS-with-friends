@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tbDate = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
@@ -72,51 +72,57 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 49);
+            this.label1.Location = new System.Drawing.Point(139, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
+            this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Date";
             // 
             // tbDate
             // 
-            this.tbDate.Location = new System.Drawing.Point(330, 45);
+            this.tbDate.Location = new System.Drawing.Point(220, 29);
+            this.tbDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbDate.Name = "tbDate";
             this.tbDate.ReadOnly = true;
-            this.tbDate.Size = new System.Drawing.Size(322, 26);
+            this.tbDate.Size = new System.Drawing.Size(216, 20);
             this.tbDate.TabIndex = 1;
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(330, 91);
+            this.tbID.Location = new System.Drawing.Point(220, 59);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(322, 26);
+            this.tbID.Size = new System.Drawing.Size(216, 20);
             this.tbID.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 95);
+            this.label2.Location = new System.Drawing.Point(139, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Transaction ";
             // 
             // tbCashier
             // 
-            this.tbCashier.Location = new System.Drawing.Point(330, 135);
+            this.tbCashier.Location = new System.Drawing.Point(220, 88);
+            this.tbCashier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbCashier.Name = "tbCashier";
             this.tbCashier.ReadOnly = true;
-            this.tbCashier.Size = new System.Drawing.Size(322, 26);
+            this.tbCashier.Size = new System.Drawing.Size(216, 20);
             this.tbCashier.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(208, 146);
+            this.label3.Location = new System.Drawing.Point(139, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Cashier ID";
             // 
@@ -129,27 +135,29 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbID);
-            this.groupBox1.Location = new System.Drawing.Point(16, 32);
+            this.groupBox1.Location = new System.Drawing.Point(11, 21);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(682, 189);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(455, 123);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(22, 45);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 122);
+            this.pictureBox1.Size = new System.Drawing.Size(98, 79);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // tbSearch
             // 
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(22, 39);
+            this.tbSearch.Location = new System.Drawing.Point(15, 25);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(628, 40);
+            this.tbSearch.Size = new System.Drawing.Size(420, 29);
             this.tbSearch.TabIndex = 7;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -161,22 +169,23 @@
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Add});
-            this.dgvItem.Location = new System.Drawing.Point(21, 102);
+            this.dgvItem.Location = new System.Drawing.Point(14, 66);
+            this.dgvItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvItem.Name = "dgvItem";
             this.dgvItem.ReadOnly = true;
             this.dgvItem.RowHeadersVisible = false;
             this.dgvItem.RowHeadersWidth = 62;
             this.dgvItem.RowTemplate.Height = 28;
-            this.dgvItem.Size = new System.Drawing.Size(632, 471);
+            this.dgvItem.Size = new System.Drawing.Size(421, 306);
             this.dgvItem.TabIndex = 8;
             this.dgvItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItem_CellContentClick);
             // 
             // Add
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.Add.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.Add.DefaultCellStyle = dataGridViewCellStyle1;
             this.Add.HeaderText = "Add";
             this.Add.MinimumWidth = 8;
             this.Add.Name = "Add";
@@ -197,12 +206,13 @@
             this.Price,
             this.Total,
             this.btnRemove});
-            this.dgvSales.Location = new System.Drawing.Point(22, 34);
+            this.dgvSales.Location = new System.Drawing.Point(15, 22);
+            this.dgvSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.RowHeadersVisible = false;
             this.dgvSales.RowHeadersWidth = 62;
             this.dgvSales.RowTemplate.Height = 28;
-            this.dgvSales.Size = new System.Drawing.Size(1076, 555);
+            this.dgvSales.Size = new System.Drawing.Size(717, 361);
             this.dgvSales.TabIndex = 9;
             this.dgvSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSales_CellContentClick);
             this.dgvSales.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSales_CellValueChanged);
@@ -250,11 +260,11 @@
             // 
             // btnRemove
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.DefaultCellStyle = dataGridViewCellStyle2;
             this.btnRemove.HeaderText = "Remove";
             this.btnRemove.MinimumWidth = 8;
             this.btnRemove.Name = "btnRemove";
@@ -266,9 +276,11 @@
             // 
             this.groupBox2.Controls.Add(this.dgvItem);
             this.groupBox2.Controls.Add(this.tbSearch);
-            this.groupBox2.Location = new System.Drawing.Point(16, 249);
+            this.groupBox2.Location = new System.Drawing.Point(11, 162);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(682, 611);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(455, 397);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Item";
@@ -276,9 +288,11 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvSales);
-            this.groupBox3.Location = new System.Drawing.Point(724, 17);
+            this.groupBox3.Location = new System.Drawing.Point(483, 11);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1118, 617);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(745, 401);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ordered List:";
@@ -287,10 +301,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 17);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(20, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(292, 37);
+            this.label4.Size = new System.Drawing.Size(198, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "KASIR POS JAYA";
             // 
@@ -304,11 +317,9 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.tbSub);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(724, 642);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox4.Location = new System.Drawing.Point(483, 417);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Size = new System.Drawing.Size(1117, 218);
+            this.groupBox4.Size = new System.Drawing.Size(745, 142);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Total Belanja";
@@ -318,10 +329,9 @@
             this.btnFinish.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnFinish.Enabled = false;
             this.btnFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinish.Location = new System.Drawing.Point(32, 141);
-            this.btnFinish.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnFinish.Location = new System.Drawing.Point(21, 92);
             this.btnFinish.Name = "btnFinish";
-            this.btnFinish.Size = new System.Drawing.Size(1066, 57);
+            this.btnFinish.Size = new System.Drawing.Size(711, 37);
             this.btnFinish.TabIndex = 22;
             this.btnFinish.Text = "Cetak Struk";
             this.btnFinish.UseVisualStyleBackColor = false;
@@ -330,10 +340,11 @@
             // tbTotal
             // 
             this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTotal.Location = new System.Drawing.Point(535, 62);
+            this.tbTotal.Location = new System.Drawing.Point(357, 40);
+            this.tbTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
-            this.tbTotal.Size = new System.Drawing.Size(563, 57);
+            this.tbTotal.Size = new System.Drawing.Size(377, 40);
             this.tbTotal.TabIndex = 21;
             this.tbTotal.TextChanged += new System.EventHandler(this.tbTotal_TextChanged);
             // 
@@ -341,9 +352,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(751, 24);
+            this.label10.Location = new System.Drawing.Point(501, 16);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(199, 37);
+            this.label10.Size = new System.Drawing.Size(136, 25);
             this.label10.TabIndex = 20;
             this.label10.Text = "Grand Total";
             // 
@@ -351,60 +363,66 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(445, 94);
+            this.label8.Location = new System.Drawing.Point(297, 61);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 25);
+            this.label8.Size = new System.Drawing.Size(34, 16);
             this.label8.TabIndex = 17;
             this.label8.Text = "11%";
             // 
             // tbTax
             // 
             this.tbTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTax.Location = new System.Drawing.Point(151, 84);
+            this.tbTax.Location = new System.Drawing.Point(101, 55);
+            this.tbTax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbTax.Name = "tbTax";
             this.tbTax.ReadOnly = true;
-            this.tbTax.Size = new System.Drawing.Size(286, 35);
+            this.tbTax.Size = new System.Drawing.Size(192, 26);
             this.tbTax.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 90);
+            this.label7.Location = new System.Drawing.Point(20, 58);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 25);
+            this.label7.Size = new System.Drawing.Size(31, 16);
             this.label7.TabIndex = 13;
             this.label7.Text = "Tax";
             // 
             // tbSub
             // 
             this.tbSub.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSub.Location = new System.Drawing.Point(151, 30);
+            this.tbSub.Location = new System.Drawing.Point(101, 19);
+            this.tbSub.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbSub.Name = "tbSub";
             this.tbSub.ReadOnly = true;
-            this.tbSub.Size = new System.Drawing.Size(342, 35);
+            this.tbSub.Size = new System.Drawing.Size(229, 26);
             this.tbSub.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(27, 40);
+            this.label5.Location = new System.Drawing.Point(18, 26);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 25);
+            this.label5.Size = new System.Drawing.Size(57, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Subtotal";
             // 
             // Kasir
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1854, 1050);
+            this.ClientSize = new System.Drawing.Size(1236, 682);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Kasir";
             this.Text = "Kasir";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

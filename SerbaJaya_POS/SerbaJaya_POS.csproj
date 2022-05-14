@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Confirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Confirmation.Designer.cs">
+      <DependentUpon>Confirmation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilterEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="profile\SettingProfile.Designer.cs">
       <DependentUpon>SettingProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Confirmation.resx">
+      <DependentUpon>Confirmation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FilterEmployee.resx">
       <DependentUpon>FilterEmployee.cs</DependentUpon>
     </EmbeddedResource>
