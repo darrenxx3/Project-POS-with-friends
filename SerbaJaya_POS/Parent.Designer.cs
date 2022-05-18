@@ -43,7 +43,9 @@
             this.menuSupplier = new System.Windows.Forms.ToolStripMenuItem();
             this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEmployee = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifcationMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stripUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userLogOut = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +119,8 @@
             this.stripManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.managerPurchase,
             this.managerReport,
-            this.addDataToolStripMenuItem});
+            this.addDataToolStripMenuItem,
+            this.notifcationMessageToolStripMenuItem});
             this.stripManager.Name = "stripManager";
             this.stripManager.Size = new System.Drawing.Size(98, 29);
             this.stripManager.Text = "Manager";
@@ -126,14 +129,14 @@
             // managerPurchase
             // 
             this.managerPurchase.Name = "managerPurchase";
-            this.managerPurchase.Size = new System.Drawing.Size(270, 34);
-            this.managerPurchase.Text = "Menu Purchase";
+            this.managerPurchase.Size = new System.Drawing.Size(277, 34);
+            this.managerPurchase.Text = "Purchase item";
             // 
             // managerReport
             // 
             this.managerReport.Name = "managerReport";
-            this.managerReport.Size = new System.Drawing.Size(270, 34);
-            this.managerReport.Text = "Cetak Report";
+            this.managerReport.Size = new System.Drawing.Size(277, 34);
+            this.managerReport.Text = "Reporting";
             this.managerReport.Click += new System.EventHandler(this.managerReport_Click);
             // 
             // addDataToolStripMenuItem
@@ -143,7 +146,7 @@
             this.itemToolStripMenuItem,
             this.menuEmployee});
             this.addDataToolStripMenuItem.Name = "addDataToolStripMenuItem";
-            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
             this.addDataToolStripMenuItem.Text = "Menu";
             // 
             // menuSupplier
@@ -167,10 +170,18 @@
             this.menuEmployee.Text = "Employee";
             this.menuEmployee.Click += new System.EventHandler(this.menuEmployee_Click);
             // 
+            // notifcationMessageToolStripMenuItem
+            // 
+            this.notifcationMessageToolStripMenuItem.Name = "notifcationMessageToolStripMenuItem";
+            this.notifcationMessageToolStripMenuItem.Size = new System.Drawing.Size(277, 34);
+            this.notifcationMessageToolStripMenuItem.Text = "Notifcation Message";
+            this.notifcationMessageToolStripMenuItem.Click += new System.EventHandler(this.notifcationMessageToolStripMenuItem_Click);
+            // 
             // stripUser
             // 
             this.stripUser.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.stripUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.notificationToolStripMenuItem,
             this.userProfile,
             this.changePasswordToolStripMenuItem,
             this.userLogOut});
@@ -178,24 +189,31 @@
             this.stripUser.Size = new System.Drawing.Size(115, 29);
             this.stripUser.Text = "Nama User";
             // 
+            // notificationToolStripMenuItem
+            // 
+            this.notificationToolStripMenuItem.Name = "notificationToolStripMenuItem";
+            this.notificationToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.notificationToolStripMenuItem.Text = "Notification";
+            this.notificationToolStripMenuItem.Click += new System.EventHandler(this.notificationToolStripMenuItem_Click);
+            // 
             // userProfile
             // 
             this.userProfile.Name = "userProfile";
-            this.userProfile.Size = new System.Drawing.Size(254, 34);
+            this.userProfile.Size = new System.Drawing.Size(270, 34);
             this.userProfile.Text = "Setting Profil";
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // userLogOut
             // 
             this.userLogOut.Name = "userLogOut";
-            this.userLogOut.Size = new System.Drawing.Size(254, 34);
+            this.userLogOut.Size = new System.Drawing.Size(270, 34);
             this.userLogOut.Text = "Log Out";
             this.userLogOut.Click += new System.EventHandler(this.userLogOut_Click);
             // 
@@ -251,6 +269,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuSupplier;
         private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuEmployee;
+        private System.Windows.Forms.ToolStripMenuItem notifcationMessageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notificationToolStripMenuItem;
     }
 }
 

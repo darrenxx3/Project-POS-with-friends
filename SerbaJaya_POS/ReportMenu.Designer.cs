@@ -68,6 +68,8 @@ namespace SerbaJaya_POS
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkEmployee = new System.Windows.Forms.CheckBox();
             this.checkPO = new System.Windows.Forms.CheckBox();
+            this.cbStatusPO = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlReport.SuspendLayout();
             this.Employee.SuspendLayout();
@@ -345,6 +347,8 @@ namespace SerbaJaya_POS
             // 
             // PurchaseOrder
             // 
+            this.PurchaseOrder.Controls.Add(this.cbStatusPO);
+            this.PurchaseOrder.Controls.Add(this.label12);
             this.PurchaseOrder.Controls.Add(this.checkPO);
             this.PurchaseOrder.Controls.Add(this.btnReportPO);
             this.PurchaseOrder.Controls.Add(this.btnFilterPO);
@@ -497,6 +501,28 @@ namespace SerbaJaya_POS
             this.checkPO.UseVisualStyleBackColor = true;
             this.checkPO.CheckedChanged += new System.EventHandler(this.checkPO_CheckedChanged);
             // 
+            // cbStatusPO
+            // 
+            this.cbStatusPO.FormattingEnabled = true;
+            this.cbStatusPO.Items.AddRange(new object[] {
+            "Active",
+            "Not Active",
+            "- BOTH -"});
+            this.cbStatusPO.Location = new System.Drawing.Point(22, 334);
+            this.cbStatusPO.Name = "cbStatusPO";
+            this.cbStatusPO.Size = new System.Drawing.Size(288, 28);
+            this.cbStatusPO.TabIndex = 59;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(17, 306);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 25);
+            this.label12.TabIndex = 58;
+            this.label12.Text = "Status :";
+            // 
             // ReportMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -570,5 +596,7 @@ namespace SerbaJaya_POS
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkEmployee;
         private System.Windows.Forms.CheckBox checkPO;
+        private System.Windows.Forms.ComboBox cbStatusPO;
+        private System.Windows.Forms.Label label12;
     }
 }

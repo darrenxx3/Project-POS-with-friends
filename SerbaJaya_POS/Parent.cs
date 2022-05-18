@@ -102,6 +102,16 @@ namespace SerbaJaya_POS
             loadForm(new ReportMenu());
         }
 
+        private void notifcationMessageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new AdminNotification());
+        }
+
+        private void notificationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadForm(new notification());
+        }
+
         private void userLogOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Log Out?", "Confirmation", MessageBoxButtons.YesNo);

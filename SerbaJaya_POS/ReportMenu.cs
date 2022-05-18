@@ -99,11 +99,13 @@ namespace SerbaJaya_POS
         string poQuery(
             string supplierID = null,
              string startDate = null,
-            string endDate = null
+            string endDate = null,
+            string status = null
         )
         {
-            string query = "SELECT * FROM purchaseOrder WHERE " +
-                   $"(supplierID IS NULL OR supplierID LIKE '%{supplierID}%' ) ";
+            string query = "SELECT PurchaseOrderID, S.SupplierName, OrderDate, E.EmployeeName,  FROM purchaseOrder P WHERE " +
+                   $"(supplierID IS NULL OR supplierID LIKE '%{supplierID}%' ) AND " +
+                   $"(IsDone IS NULL OR IsDone LIKE '%{status}%' )";
 
             query += handleDate(startDate, endDate, "OrderDate");
 
@@ -162,9 +164,9 @@ namespace SerbaJaya_POS
 
         void loadAllCB()
         {
-/*            string queryEmp = "SELECT DISTINCT S.EmployeeID, E.EmployeeName FROM Sales S " +
+            string queryEmp = "SELECT DISTINCT S.EmployeeID, E.EmployeeName FROM Sales S " +
                     "INNER JOIN Employee E ON E.EmployeeID = S.EmployeeID ";
-            loadCB(queryEmp, cbEmployeeSales, employee);*/
+            loadCB(queryEmp, cbEmployeeSales, employee);
 
             string querySupplier = "SELECT DISTINCT P.SupplierID, S.SupplierName FROM PurchaseOrder P " +
                 "INNER JOIN Supplier S ON S.SupplierID = P.SupplierID";
@@ -259,7 +261,7 @@ namespace SerbaJaya_POS
             string dateEnd = dtpEndPO.Value.Date.ToString("yyyy-MM-dd");
             string supplierID = handleCB(checkPO, cbSupplierPO);
 
-            loadDGV(poQuery(supplierID, dateStart, dateEnd));
+            loadDGV(poQuery(supplierID, dateStart, dateEnd, handleStatus(cbStatusPO.Text)));
         }
 
         private void checkPO_CheckedChanged(object sender, EventArgs e)

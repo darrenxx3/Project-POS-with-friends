@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -44,6 +49,8 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +73,12 @@
     </Compile>
     <Compile Include="AdminItem.Designer.cs">
       <DependentUpon>AdminItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminNotification.Designer.cs">
+      <DependentUpon>AdminNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminSupplier.cs">
       <SubType>Form</SubType>
@@ -118,6 +131,12 @@
     <Compile Include="ManagerPurchasing.Designer.cs">
       <DependentUpon>ManagerPurchasing.cs</DependentUpon>
     </Compile>
+    <Compile Include="notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="notification.Designer.cs">
+      <DependentUpon>notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,10 +163,12 @@
     <EmbeddedResource Include="AdminItem.resx">
       <DependentUpon>AdminItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminNotification.resx">
+      <DependentUpon>AdminNotification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminSupplier.resx">
       <DependentUpon>AdminSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataItem.resx" />
     <EmbeddedResource Include="DataSupplier.resx" />
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
@@ -163,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerPurchasing.resx">
       <DependentUpon>ManagerPurchasing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="notification.resx">
+      <DependentUpon>notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.cs</DependentUpon>
@@ -212,6 +236,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="notification.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
