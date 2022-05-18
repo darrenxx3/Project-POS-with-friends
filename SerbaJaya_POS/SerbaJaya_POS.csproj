@@ -35,8 +35,8 @@
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -74,6 +74,12 @@
     <Compile Include="AdminItem.Designer.cs">
       <DependentUpon>AdminItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminNotification.Designer.cs">
+      <DependentUpon>AdminNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,29 +113,17 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="Confirmation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Confirmation.Designer.cs">
-      <DependentUpon>Confirmation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeeReportViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EmployeeReportViewer.Designer.cs">
-      <DependentUpon>EmployeeReportViewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataItemReportViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataItemReportViewer.Designer.cs">
-      <DependentUpon>DataItemReportViewer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inventoryCheck.Designer.cs">
+      <DependentUpon>inventoryCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="Kasir.cs">
       <SubType>Form</SubType>
@@ -148,6 +142,12 @@
     </Compile>
     <Compile Include="ManagerPurchasing.Designer.cs">
       <DependentUpon>ManagerPurchasing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="notification.Designer.cs">
+      <DependentUpon>notification.cs</DependentUpon>
     </Compile>
     <Compile Include="Parent.cs">
       <SubType>Form</SubType>
@@ -223,6 +223,9 @@
     <EmbeddedResource Include="AdminItem.resx">
       <DependentUpon>AdminItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminNotification.resx">
+      <DependentUpon>AdminNotification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminSupplier.resx">
       <DependentUpon>AdminSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +251,9 @@
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="inventoryCheck.resx">
+      <DependentUpon>inventoryCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kasir.resx">
       <DependentUpon>Kasir.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerPurchasing.resx">
       <DependentUpon>ManagerPurchasing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="notification.resx">
+      <DependentUpon>notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <DependentUpon>Parent.cs</DependentUpon>
@@ -334,6 +343,9 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="notification.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

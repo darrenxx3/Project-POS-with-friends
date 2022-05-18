@@ -31,7 +31,7 @@ namespace SerbaJaya_POS
 
                 string queryAdd = 
                     "INSERT INTO SalesDetail " +
-                    "(SalesID, ItemID, Quantit, salesPrice) " +
+                    "(SalesID, ItemID, Quantity, salePrice) " +
                     $"VALUES ('{tbID.Text}', '{ itemID }', { qty }, {price})";
 
                 string queryUpdt =
