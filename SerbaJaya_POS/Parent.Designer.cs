@@ -101,14 +101,14 @@
             // inventoryList
             // 
             this.inventoryList.Name = "inventoryList";
-            this.inventoryList.Size = new System.Drawing.Size(270, 34);
+            this.inventoryList.Size = new System.Drawing.Size(258, 34);
             this.inventoryList.Text = "Inventory List";
             this.inventoryList.Click += new System.EventHandler(this.inventoryList_Click);
             // 
             // gudangKonfirmasi
             // 
             this.gudangKonfirmasi.Name = "gudangKonfirmasi";
-            this.gudangKonfirmasi.Size = new System.Drawing.Size(270, 34);
+            this.gudangKonfirmasi.Size = new System.Drawing.Size(258, 34);
             this.gudangKonfirmasi.Text = "Konfirmasi Barang";
             this.gudangKonfirmasi.Click += new System.EventHandler(this.gudangKonfirmasi_Click);
             // 
@@ -126,14 +126,15 @@
             // managerPurchase
             // 
             this.managerPurchase.Name = "managerPurchase";
-            this.managerPurchase.Size = new System.Drawing.Size(234, 34);
+            this.managerPurchase.Size = new System.Drawing.Size(270, 34);
             this.managerPurchase.Text = "Menu Purchase";
             // 
             // managerReport
             // 
             this.managerReport.Name = "managerReport";
-            this.managerReport.Size = new System.Drawing.Size(234, 34);
+            this.managerReport.Size = new System.Drawing.Size(270, 34);
             this.managerReport.Text = "Cetak Report";
+            this.managerReport.Click += new System.EventHandler(this.managerReport_Click);
             // 
             // addDataToolStripMenuItem
             // 
@@ -142,7 +143,7 @@
             this.itemToolStripMenuItem,
             this.menuEmployee});
             this.addDataToolStripMenuItem.Name = "addDataToolStripMenuItem";
-            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(234, 34);
+            this.addDataToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.addDataToolStripMenuItem.Text = "Menu";
             // 
             // menuSupplier
