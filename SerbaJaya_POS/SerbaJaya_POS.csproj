@@ -98,10 +98,6 @@
       <DependentUpon>EmployeeReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DataItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataItem.Designer.cs" />
     <Compile Include="DataSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,12 +177,6 @@
       <DependentUpon>SalesInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SalesInvoiceViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SalesInvoiceViewer.Designer.cs">
-      <DependentUpon>SalesInvoiceViewer.cs</DependentUpon>
-    </Compile>
     <Compile Include="SalesReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -240,11 +230,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EmployeeReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataItem.resx" />
     <EmbeddedResource Include="DataSupplier.resx" />
-    <EmbeddedResource Include="Confirmation.resx">
-      <DependentUpon>Confirmation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeReportViewer.resx">
       <DependentUpon>EmployeeReportViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,9 +281,6 @@
     <EmbeddedResource Include="SalesInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SalesInvoice.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SalesInvoiceViewer.resx">
-      <DependentUpon>SalesInvoiceViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

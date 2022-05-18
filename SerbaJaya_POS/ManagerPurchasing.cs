@@ -50,8 +50,6 @@ namespace SerbaJaya_POS
         
         private void btnSearchItemName_Click(object sender, EventArgs e)
         {
-            DataItem vitem = new DataItem();
-            vitem.Show();
         }        
         
         private void textBoxPOID_Leave(object sender, EventArgs e)
