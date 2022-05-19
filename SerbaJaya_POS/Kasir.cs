@@ -23,13 +23,13 @@ namespace SerbaJaya_POS
 
         void insertDataDetail()
         {
-            foreach(DataGridViewRow row in dgvSales.Rows)
+            foreach (DataGridViewRow row in dgvSales.Rows)
             {
                 int qty = Convert.ToInt32(row.Cells[2].Value);
                 string itemID = row.Cells[0].Value.ToString();
                 int price = Convert.ToInt32(row.Cells[3].Value);
 
-                string queryAdd = 
+                string queryAdd =
                     "INSERT INTO SalesDetail " +
                     "(SalesID, ItemID, Quantity, salePrice) " +
                     $"VALUES ('{tbID.Text}', '{ itemID }', { qty }, {price})";
@@ -74,7 +74,7 @@ namespace SerbaJaya_POS
                 MessageBox.Show("Transaksi Selesai! Terima kasih.");
                 RefreshPage();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -84,9 +84,9 @@ namespace SerbaJaya_POS
         {
             int total = 0;
 
-            foreach(DataGridViewRow row in dgv.Rows)
+            foreach (DataGridViewRow row in dgv.Rows)
             {
-                total+= Convert.ToInt32(row.Cells["Total"].Value);
+                total += Convert.ToInt32(row.Cells["Total"].Value);
             }
 
             return total;
@@ -150,7 +150,7 @@ namespace SerbaJaya_POS
         void updateSubTotal()
         {
             int subtotal = getSubtotal(dgvSales);
-            double Tax = (double) subtotal * 0.11;
+            double Tax = (double)subtotal * 0.11;
 
             tbSub.Text = subtotal.ToString("N0");
             tbTax.Text = Tax.ToString("N0");
@@ -167,22 +167,29 @@ namespace SerbaJaya_POS
         //Get QTY Input
         int getQtyBox(int stock, int curStock = 0)
         {
-            string input = Interaction.InputBox("Insert Quantity",
-                       "Title",
-                       "1".Trim());
+            try
+            {
+                string input = Interaction.InputBox("Insert Quantity",
+                           "Title",
+                           "1".Trim());
 
-            int finalQty = Convert.ToInt32(input) + curStock;
+                int finalQty = Convert.ToInt32(input) + curStock;
 
-            if (input == "")
+                if (input == "")
+                {
+                    return 0;
+                }
+                else if (finalQty > stock)
+                {
+
+                    return stock;
+                }
+                return (finalQty);
+            }
+            catch (Exception ex)
             {
                 return 0;
             }
-            else if( finalQty > stock)
-            {
-
-                return stock;
-            }
-            return (finalQty);
         }
 
         void loadPage()
@@ -276,6 +283,8 @@ namespace SerbaJaya_POS
                         int curQty = Convert.ToInt32(rowSales.Cells[2].Value);
                         int finalQty = getQtyBox(stock, curQty);
 
+                        if (finalQty == 0) return;
+
                         updateCells(finalQty, Convert.ToInt32(price), rowSales);
                         return;
                     }
@@ -283,7 +292,6 @@ namespace SerbaJaya_POS
                 }
 
                 int qty = getQtyBox(Convert.ToInt32(stock));
-
                 if (qty == 0) return;
 
                 string total = (Convert.ToInt32(price) * qty).ToString();

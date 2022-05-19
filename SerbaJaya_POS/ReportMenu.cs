@@ -103,8 +103,10 @@ namespace SerbaJaya_POS
             string status = null
         )
         {
-            string query = "SELECT PurchaseOrderID, S.SupplierName, OrderDate, E.EmployeeName,  FROM purchaseOrder P WHERE " +
-                   $"(supplierID IS NULL OR supplierID LIKE '%{supplierID}%' ) AND " +
+            string query = "SELECT PurchaseOrderID, S.SupplierName, OrderDate, E.EmployeeName FROM purchaseOrder P " +
+                   $"INNER JOIN Supplier S ON S.SupplierID = P.SupplierID " +
+                   $"INNER JOIN Employee E ON E.EmployeeID = P.EmployeeID " +
+                   $"WHERE (P.SupplierID IS NULL OR P.SupplierID LIKE '%{supplierID}%' ) AND " +
                    $"(IsDone IS NULL OR IsDone LIKE '%{status}%' )";
 
             query += handleDate(startDate, endDate, "OrderDate");

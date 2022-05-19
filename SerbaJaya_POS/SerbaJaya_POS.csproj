@@ -98,10 +98,6 @@
       <DependentUpon>EmployeeReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DataSupplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataSupplier.Designer.cs" />
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,7 +226,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EmployeeReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataSupplier.resx" />
     <EmbeddedResource Include="EmployeeReportViewer.resx">
       <DependentUpon>EmployeeReportViewer.cs</DependentUpon>
     </EmbeddedResource>

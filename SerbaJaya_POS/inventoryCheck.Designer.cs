@@ -42,7 +42,6 @@ namespace SerbaJaya_POS
             this.dgvPODetail = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cbCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tbNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -153,8 +152,7 @@ namespace SerbaJaya_POS
             this.dgvPODetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPODetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPODetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cbCheck,
-            this.tbNote});
+            this.cbCheck});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,6 +163,7 @@ namespace SerbaJaya_POS
             this.dgvPODetail.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPODetail.Location = new System.Drawing.Point(21, 43);
             this.dgvPODetail.Name = "dgvPODetail";
+            this.dgvPODetail.ReadOnly = true;
             this.dgvPODetail.RowHeadersVisible = false;
             this.dgvPODetail.RowHeadersWidth = 62;
             this.dgvPODetail.RowTemplate.Height = 28;
@@ -187,12 +186,7 @@ namespace SerbaJaya_POS
             this.cbCheck.HeaderText = "Check";
             this.cbCheck.MinimumWidth = 8;
             this.cbCheck.Name = "cbCheck";
-            // 
-            // tbNote
-            // 
-            this.tbNote.HeaderText = "Note";
-            this.tbNote.MinimumWidth = 8;
-            this.tbNote.Name = "tbNote";
+            this.cbCheck.ReadOnly = true;
             // 
             // inventoryCheck
             // 
@@ -225,6 +219,5 @@ namespace SerbaJaya_POS
         private System.Windows.Forms.DataGridView dgvPODetail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tbNote;
     }
 }

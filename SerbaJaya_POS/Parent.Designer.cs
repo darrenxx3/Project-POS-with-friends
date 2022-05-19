@@ -131,6 +131,7 @@
             this.managerPurchase.Name = "managerPurchase";
             this.managerPurchase.Size = new System.Drawing.Size(277, 34);
             this.managerPurchase.Text = "Purchase item";
+            this.managerPurchase.Click += new System.EventHandler(this.managerPurchase_Click);
             // 
             // managerReport
             // 
@@ -192,28 +193,28 @@
             // notificationToolStripMenuItem
             // 
             this.notificationToolStripMenuItem.Name = "notificationToolStripMenuItem";
-            this.notificationToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.notificationToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.notificationToolStripMenuItem.Text = "Notification";
             this.notificationToolStripMenuItem.Click += new System.EventHandler(this.notificationToolStripMenuItem_Click);
             // 
             // userProfile
             // 
             this.userProfile.Name = "userProfile";
-            this.userProfile.Size = new System.Drawing.Size(270, 34);
+            this.userProfile.Size = new System.Drawing.Size(254, 34);
             this.userProfile.Text = "Setting Profil";
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // userLogOut
             // 
             this.userLogOut.Name = "userLogOut";
-            this.userLogOut.Size = new System.Drawing.Size(270, 34);
+            this.userLogOut.Size = new System.Drawing.Size(254, 34);
             this.userLogOut.Text = "Log Out";
             this.userLogOut.Click += new System.EventHandler(this.userLogOut_Click);
             // 

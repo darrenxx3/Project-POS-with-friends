@@ -34,8 +34,8 @@ namespace SerbaJaya_POS
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ManagerPurchasing purchasing = new ManagerPurchasing();
-            purchasing.textBoxSupplierID.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            purchasing.textBoxSupplierName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            purchasing.tbSupplierID.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            purchasing.tbSupplierName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
             purchasing.ShowDialog();
         }
 

@@ -13,21 +13,20 @@ namespace SerbaJaya_POS
 
     public partial class inventoryCheck : Form
     {
-        public string note="";
         public string selectedPO;
-        public string status = "done";
+        public string status = "true";
 
 
         void loadPO(string filter = null)
         {
             string query =
-                $"SELECT PurchaseOrderID, S.SupplierName, OrderDate, WarehouseNote " +
+                $"SELECT PurchaseOrderID, S.SupplierName, OrderDate " +
                 $"FROM PurchaseOrder P " +
                 $"INNER JOIN Supplier S ON S.SupplierID = P.SupplierID " +
                 $"WHERE (( PurchaseOrderID IS NULL OR PurchaseOrderID LIKE '%{filter}%' ) OR " +
                     $"( S.SupplierName IS NULL or S.SupplierName LIKE '%{filter}%' ) OR " +
                     $"( OrderDate IS NULL or OrderDate LIKE '%{filter}%' )) AND " +
-                    $"OrderStatus LIKE 'Not Done' ";
+                    $"IsDone LIKE 'false' ";
 
             var conn = new Connection.Connection_Query();
             conn.OpenConnection();
@@ -50,20 +49,22 @@ namespace SerbaJaya_POS
         void loadDetail(string id)
         {
             string query =
-                "SELECT I.ItemID, I.ItemName, Quantity, Cost FROM PurchaseOrderDetail PO " +
+                "SELECT I.ItemID, I.ItemName, Quantity, Price, Note FROM PurchaseOrderDetail PO " +
                 "INNER JOIN Dataitem I ON I.ItemID = PO.ItemID " +
-                $"WHERE PurchaseOrderID = '{id}'";
+                $"WHERE PurchaseOrderID = '{id}' AND IsComplete = 'false' ";
 
+            MessageBox.Show(query);
             var conn = new Connection.Connection_Query();
             try
             {
                 conn.OpenConnection();
                 dgvPODetail.ReadOnly = false;
                 dgvPODetail.DataSource = conn.ShowDataInGridView(query);
-                dgvPODetail.Columns["Cost"].Visible = false;
+                dgvPODetail.Columns["Price"].Visible = false;
+                dgvPODetail.Columns["Note"].ReadOnly = false;
 
             }
-            catch( Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -75,20 +76,28 @@ namespace SerbaJaya_POS
 
         void updateItem()
         {
-            
-            foreach(DataGridViewRow row in dgvPODetail.Rows)
+
+            foreach (DataGridViewRow row in dgvPODetail.Rows)
             {
+                string complete;
+                string itemNote = null;
+
+
+                string id = row.Cells[1].Value.ToString();
                 bool isSelected = Convert.ToBoolean(row.Cells[0].Value);
                 if (isSelected)
                 {
-                    string id = row.Cells[2].Value.ToString();
-                    int stock = Convert.ToInt32(row.Cells[4].Value);
-                    int cost = Convert.ToInt32(row.Cells[5].Value);
+                    complete = "true";
+
+                    int stock = Convert.ToInt32(row.Cells["Quantity"].Value);
+                    int cost = Convert.ToInt32(row.Cells["Price"].Value);
 
                     string queryUpdt = $"UPDATE DataItem SET " +
                     $"Stock = Stock+{stock}, " +
                     $"Cost = (Cost*Stock+{cost * stock})/Stock+{stock} " +
                     $"WHERE ItemID = '{id}' ";
+
+                    MessageBox.Show(queryUpdt);
 
                     var conn = new Connection.Connection_Query();
                     conn.OpenConnection();
@@ -108,21 +117,23 @@ namespace SerbaJaya_POS
                 }
                 else
                 {
-                    status = "not done";
+                    status = "false";
+                    complete = "false";
 
-                    string ItemNote = row.Cells[1].Value.ToString();
-                    note += $"{ItemNote},";
+                    string tempNote = row.Cells["Note"].Value.ToString();
+                    itemNote=  tempNote == "" ? "Jumlah tidak sesuai" : tempNote.ToString();
+
                 }
-            }
 
+                updatePODetail(id, itemNote, complete);
+            }
             updatePO();
         }
 
         void updatePO()
         {
             string queryUpdt = "UPDATE PurchaseOrder SET " +
-                $"OrderStatus = '{status}', " +
-                $"WarehouseNote = '{note}' " +
+                $"IsDone = '{status}' " +
                 $"WHERE PurchaseOrderID = '{selectedPO}' ";
             MessageBox.Show(queryUpdt);
             var conn = new Connection.Connection_Query();
@@ -134,9 +145,36 @@ namespace SerbaJaya_POS
                 MessageBox.Show("Stock item berhasil diperbaharui.");
                 formRefresh();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.CloseConnectoin();
+            }
+        }
+
+        void updatePODetail(string idItem, string note, string status)
+        {
+            var conn = new Connection.Connection_Query();
+            conn.OpenConnection();
+
+            try
+            {
+                string query =
+                    "UPDATE PurchaseOrderDetail SET " +
+                    $"Note = '{note}', " +
+                    $"IsComplete = '{status}' " +
+                    $"WHERE PurchaseOrderID = '{selectedPO}' AND " +
+                    $"ItemID = '{idItem}' ";
+
+                MessageBox.Show(query);
+                conn.ExecuteQueires(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fail to update detail: " + ex.ToString());
             }
             finally
             {
@@ -155,8 +193,7 @@ namespace SerbaJaya_POS
             dgvPODetail.DataSource = null;
             dgvPODetail.Rows.Clear();
 
-            status = "done";
-            note = "";
+            status = "true";
         }
 
         private void inventoryCheck_Load(object sender, EventArgs e)
@@ -176,7 +213,7 @@ namespace SerbaJaya_POS
                 selectedPO = dgvPO.Rows[e.RowIndex].Cells[1].Value.ToString();
 
                 loadDetail(selectedPO);
-            
+
             }
         }
 
