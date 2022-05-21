@@ -109,7 +109,8 @@ namespace SerbaJaya_POS
 
         private void notificationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            loadForm(new notification());
+            notification notif = new notification();
+            notif.Show();
         }
 
         private void managerPurchase_Click(object sender, EventArgs e)

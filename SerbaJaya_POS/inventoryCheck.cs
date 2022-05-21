@@ -94,7 +94,7 @@ namespace SerbaJaya_POS
 
                     string queryUpdt = $"UPDATE DataItem SET " +
                     $"Stock = Stock+{stock}, " +
-                    $"Cost = (Cost*Stock+{cost * stock})/Stock+{stock} " +
+                    $"Cost = (Cost*Stock+{cost * stock})/(Stock+{stock}) " +
                     $"WHERE ItemID = '{id}' ";
 
                     MessageBox.Show(queryUpdt);

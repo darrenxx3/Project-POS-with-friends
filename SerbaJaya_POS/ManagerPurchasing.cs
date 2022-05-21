@@ -16,6 +16,14 @@ namespace SerbaJaya_POS
     public partial class ManagerPurchasing : Form
     {
         string managerID;
+
+        void loadReport()
+        {
+            string query = "{PurchaseOrder.PurchaseOrderID} = '" + tbPOid.Text + "' ";
+            LoadReport report = new LoadReport(query, "po");
+            report.Show();
+        }
+
         void insertPO()
         {
             var conn = new Connection.Connection_Query();
@@ -40,6 +48,7 @@ namespace SerbaJaya_POS
             }
 
             insertPODetail();
+            loadReport();            
             MessageBox.Show("Purchase Order successfully created!");
             refreshForm();
         }

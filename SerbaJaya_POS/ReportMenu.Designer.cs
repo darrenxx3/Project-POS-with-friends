@@ -33,6 +33,7 @@ namespace SerbaJaya_POS
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControlReport = new System.Windows.Forms.TabControl();
             this.Employee = new System.Windows.Forms.TabPage();
+            this.checkPosition = new System.Windows.Forms.CheckBox();
             this.cbStatusEmployee = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbPosition = new System.Windows.Forms.ComboBox();
@@ -45,7 +46,9 @@ namespace SerbaJaya_POS
             this.cbStatusItem = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Sales = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
+            this.checkDateSales = new System.Windows.Forms.CheckBox();
+            this.checkEmployee = new System.Windows.Forms.CheckBox();
+            this.btnReportSales = new System.Windows.Forms.Button();
             this.btnFilterSales = new System.Windows.Forms.Button();
             this.cbEmployeeSales = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,6 +57,10 @@ namespace SerbaJaya_POS
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.PurchaseOrder = new System.Windows.Forms.TabPage();
+            this.checkPODate = new System.Windows.Forms.CheckBox();
+            this.cbStatusPO = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.checkPO = new System.Windows.Forms.CheckBox();
             this.btnReportPO = new System.Windows.Forms.Button();
             this.btnFilterPO = new System.Windows.Forms.Button();
             this.dtpStartPO = new System.Windows.Forms.DateTimePicker();
@@ -66,10 +73,6 @@ namespace SerbaJaya_POS
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkEmployee = new System.Windows.Forms.CheckBox();
-            this.checkPO = new System.Windows.Forms.CheckBox();
-            this.cbStatusPO = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlReport.SuspendLayout();
             this.Employee.SuspendLayout();
@@ -117,6 +120,7 @@ namespace SerbaJaya_POS
             // 
             // Employee
             // 
+            this.Employee.Controls.Add(this.checkPosition);
             this.Employee.Controls.Add(this.cbStatusEmployee);
             this.Employee.Controls.Add(this.label4);
             this.Employee.Controls.Add(this.cbPosition);
@@ -132,23 +136,37 @@ namespace SerbaJaya_POS
             this.Employee.Text = "Employee";
             this.Employee.UseVisualStyleBackColor = true;
             // 
+            // checkPosition
+            // 
+            this.checkPosition.AutoSize = true;
+            this.checkPosition.Location = new System.Drawing.Point(26, 99);
+            this.checkPosition.Name = "checkPosition";
+            this.checkPosition.Size = new System.Drawing.Size(101, 24);
+            this.checkPosition.TabIndex = 57;
+            this.checkPosition.Text = "Select All";
+            this.checkPosition.UseVisualStyleBackColor = true;
+            this.checkPosition.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // cbStatusEmployee
             // 
+            this.cbStatusEmployee.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStatusEmployee.DisplayMember = "- BOTH -";
             this.cbStatusEmployee.FormattingEnabled = true;
             this.cbStatusEmployee.Items.AddRange(new object[] {
             "Active",
             "Not Active",
             "- BOTH -"});
-            this.cbStatusEmployee.Location = new System.Drawing.Point(26, 146);
+            this.cbStatusEmployee.Location = new System.Drawing.Point(26, 171);
             this.cbStatusEmployee.Name = "cbStatusEmployee";
             this.cbStatusEmployee.Size = new System.Drawing.Size(288, 28);
             this.cbStatusEmployee.TabIndex = 41;
+            this.cbStatusEmployee.Text = "- BOTH -";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 118);
+            this.label4.Location = new System.Drawing.Point(21, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 25);
             this.label4.TabIndex = 40;
@@ -183,6 +201,7 @@ namespace SerbaJaya_POS
             this.btnReportEmployee.TabIndex = 37;
             this.btnReportEmployee.Text = "Cetak Report";
             this.btnReportEmployee.UseVisualStyleBackColor = true;
+            this.btnReportEmployee.Click += new System.EventHandler(this.btnReportEmployee_Click);
             // 
             // btnFilterEmployee
             // 
@@ -216,6 +235,7 @@ namespace SerbaJaya_POS
             this.btnReportItem.TabIndex = 47;
             this.btnReportItem.Text = "Cetak Report";
             this.btnReportItem.UseVisualStyleBackColor = true;
+            this.btnReportItem.Click += new System.EventHandler(this.btnReportItem_Click);
             // 
             // btnFilterItem
             // 
@@ -238,6 +258,7 @@ namespace SerbaJaya_POS
             this.cbStatusItem.Name = "cbStatusItem";
             this.cbStatusItem.Size = new System.Drawing.Size(288, 28);
             this.cbStatusItem.TabIndex = 45;
+            this.cbStatusItem.Text = "- BOTH -";
             // 
             // label3
             // 
@@ -251,8 +272,9 @@ namespace SerbaJaya_POS
             // 
             // Sales
             // 
+            this.Sales.Controls.Add(this.checkDateSales);
             this.Sales.Controls.Add(this.checkEmployee);
-            this.Sales.Controls.Add(this.button5);
+            this.Sales.Controls.Add(this.btnReportSales);
             this.Sales.Controls.Add(this.btnFilterSales);
             this.Sales.Controls.Add(this.cbEmployeeSales);
             this.Sales.Controls.Add(this.label11);
@@ -268,14 +290,37 @@ namespace SerbaJaya_POS
             this.Sales.Text = "Sales";
             this.Sales.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // checkDateSales
             // 
-            this.button5.Location = new System.Drawing.Point(170, 635);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(140, 63);
-            this.button5.TabIndex = 55;
-            this.button5.Text = "Cetak Report";
-            this.button5.UseVisualStyleBackColor = true;
+            this.checkDateSales.AutoSize = true;
+            this.checkDateSales.Location = new System.Drawing.Point(22, 178);
+            this.checkDateSales.Name = "checkDateSales";
+            this.checkDateSales.Size = new System.Drawing.Size(90, 24);
+            this.checkDateSales.TabIndex = 61;
+            this.checkDateSales.Text = "All Time";
+            this.checkDateSales.UseVisualStyleBackColor = true;
+            this.checkDateSales.CheckedChanged += new System.EventHandler(this.cbDateSales_CheckedChanged);
+            // 
+            // checkEmployee
+            // 
+            this.checkEmployee.AutoSize = true;
+            this.checkEmployee.Location = new System.Drawing.Point(22, 294);
+            this.checkEmployee.Name = "checkEmployee";
+            this.checkEmployee.Size = new System.Drawing.Size(101, 24);
+            this.checkEmployee.TabIndex = 56;
+            this.checkEmployee.Text = "Select All";
+            this.checkEmployee.UseVisualStyleBackColor = true;
+            this.checkEmployee.CheckedChanged += new System.EventHandler(this.checkEmployee_CheckedChanged);
+            // 
+            // btnReportSales
+            // 
+            this.btnReportSales.Location = new System.Drawing.Point(170, 635);
+            this.btnReportSales.Name = "btnReportSales";
+            this.btnReportSales.Size = new System.Drawing.Size(140, 63);
+            this.btnReportSales.TabIndex = 55;
+            this.btnReportSales.Text = "Cetak Report";
+            this.btnReportSales.UseVisualStyleBackColor = true;
+            this.btnReportSales.Click += new System.EventHandler(this.btnReportSales_Click);
             // 
             // btnFilterSales
             // 
@@ -294,7 +339,7 @@ namespace SerbaJaya_POS
             "Active",
             "Not Acctive",
             "- BOTH -"});
-            this.cbEmployeeSales.Location = new System.Drawing.Point(23, 221);
+            this.cbEmployeeSales.Location = new System.Drawing.Point(23, 259);
             this.cbEmployeeSales.Name = "cbEmployeeSales";
             this.cbEmployeeSales.Size = new System.Drawing.Size(288, 28);
             this.cbEmployeeSales.TabIndex = 53;
@@ -303,7 +348,7 @@ namespace SerbaJaya_POS
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(18, 193);
+            this.label11.Location = new System.Drawing.Point(18, 231);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(119, 25);
             this.label11.TabIndex = 52;
@@ -347,6 +392,7 @@ namespace SerbaJaya_POS
             // 
             // PurchaseOrder
             // 
+            this.PurchaseOrder.Controls.Add(this.checkPODate);
             this.PurchaseOrder.Controls.Add(this.cbStatusPO);
             this.PurchaseOrder.Controls.Add(this.label12);
             this.PurchaseOrder.Controls.Add(this.checkPO);
@@ -365,6 +411,51 @@ namespace SerbaJaya_POS
             this.PurchaseOrder.Text = "Purchase Order";
             this.PurchaseOrder.UseVisualStyleBackColor = true;
             // 
+            // checkPODate
+            // 
+            this.checkPODate.AutoSize = true;
+            this.checkPODate.Location = new System.Drawing.Point(22, 184);
+            this.checkPODate.Name = "checkPODate";
+            this.checkPODate.Size = new System.Drawing.Size(90, 24);
+            this.checkPODate.TabIndex = 60;
+            this.checkPODate.Text = "All Time";
+            this.checkPODate.UseVisualStyleBackColor = true;
+            this.checkPODate.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // cbStatusPO
+            // 
+            this.cbStatusPO.FormattingEnabled = true;
+            this.cbStatusPO.Items.AddRange(new object[] {
+            "Active",
+            "Not Active",
+            "- BOTH -"});
+            this.cbStatusPO.Location = new System.Drawing.Point(22, 364);
+            this.cbStatusPO.Name = "cbStatusPO";
+            this.cbStatusPO.Size = new System.Drawing.Size(288, 28);
+            this.cbStatusPO.TabIndex = 59;
+            this.cbStatusPO.Text = "- BOTH -";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(17, 336);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(85, 25);
+            this.label12.TabIndex = 58;
+            this.label12.Text = "Status :";
+            // 
+            // checkPO
+            // 
+            this.checkPO.AutoSize = true;
+            this.checkPO.Location = new System.Drawing.Point(22, 291);
+            this.checkPO.Name = "checkPO";
+            this.checkPO.Size = new System.Drawing.Size(101, 24);
+            this.checkPO.TabIndex = 57;
+            this.checkPO.Text = "Select All";
+            this.checkPO.UseVisualStyleBackColor = true;
+            this.checkPO.CheckedChanged += new System.EventHandler(this.checkPO_CheckedChanged);
+            // 
             // btnReportPO
             // 
             this.btnReportPO.Location = new System.Drawing.Point(170, 635);
@@ -373,6 +464,7 @@ namespace SerbaJaya_POS
             this.btnReportPO.TabIndex = 55;
             this.btnReportPO.Text = "Cetak Report";
             this.btnReportPO.UseVisualStyleBackColor = true;
+            this.btnReportPO.Click += new System.EventHandler(this.btnReportPO_Click);
             // 
             // btnFilterPO
             // 
@@ -405,7 +497,7 @@ namespace SerbaJaya_POS
             this.cbSupplierPO.FormattingEnabled = true;
             this.cbSupplierPO.Items.AddRange(new object[] {
             ""});
-            this.cbSupplierPO.Location = new System.Drawing.Point(22, 222);
+            this.cbSupplierPO.Location = new System.Drawing.Point(22, 257);
             this.cbSupplierPO.Name = "cbSupplierPO";
             this.cbSupplierPO.Size = new System.Drawing.Size(288, 28);
             this.cbSupplierPO.TabIndex = 51;
@@ -414,7 +506,7 @@ namespace SerbaJaya_POS
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(17, 194);
+            this.label10.Location = new System.Drawing.Point(17, 229);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 25);
             this.label10.TabIndex = 50;
@@ -479,50 +571,6 @@ namespace SerbaJaya_POS
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
-            // checkEmployee
-            // 
-            this.checkEmployee.AutoSize = true;
-            this.checkEmployee.Location = new System.Drawing.Point(22, 256);
-            this.checkEmployee.Name = "checkEmployee";
-            this.checkEmployee.Size = new System.Drawing.Size(101, 24);
-            this.checkEmployee.TabIndex = 56;
-            this.checkEmployee.Text = "Select All";
-            this.checkEmployee.UseVisualStyleBackColor = true;
-            this.checkEmployee.CheckedChanged += new System.EventHandler(this.checkEmployee_CheckedChanged);
-            // 
-            // checkPO
-            // 
-            this.checkPO.AutoSize = true;
-            this.checkPO.Location = new System.Drawing.Point(22, 256);
-            this.checkPO.Name = "checkPO";
-            this.checkPO.Size = new System.Drawing.Size(101, 24);
-            this.checkPO.TabIndex = 57;
-            this.checkPO.Text = "Select All";
-            this.checkPO.UseVisualStyleBackColor = true;
-            this.checkPO.CheckedChanged += new System.EventHandler(this.checkPO_CheckedChanged);
-            // 
-            // cbStatusPO
-            // 
-            this.cbStatusPO.FormattingEnabled = true;
-            this.cbStatusPO.Items.AddRange(new object[] {
-            "Active",
-            "Not Active",
-            "- BOTH -"});
-            this.cbStatusPO.Location = new System.Drawing.Point(22, 334);
-            this.cbStatusPO.Name = "cbStatusPO";
-            this.cbStatusPO.Size = new System.Drawing.Size(288, 28);
-            this.cbStatusPO.TabIndex = 59;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(17, 306);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(85, 25);
-            this.label12.TabIndex = 58;
-            this.label12.Text = "Status :";
-            // 
             // ReportMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -578,7 +626,7 @@ namespace SerbaJaya_POS
         private System.Windows.Forms.Button btnFilterItem;
         private System.Windows.Forms.ComboBox cbStatusItem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnReportSales;
         private System.Windows.Forms.Button btnFilterSales;
         private System.Windows.Forms.ComboBox cbEmployeeSales;
         private System.Windows.Forms.Label label11;
@@ -598,5 +646,8 @@ namespace SerbaJaya_POS
         private System.Windows.Forms.CheckBox checkPO;
         private System.Windows.Forms.ComboBox cbStatusPO;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox checkPosition;
+        private System.Windows.Forms.CheckBox checkPODate;
+        private System.Windows.Forms.CheckBox checkDateSales;
     }
 }

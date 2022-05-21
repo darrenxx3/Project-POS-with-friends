@@ -16,14 +16,14 @@ namespace SerbaJaya_POS {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class DataItemReport : ReportClass {
+    public class POReport : ReportClass {
         
-        public DataItemReport() {
+        public POReport() {
         }
         
         public override string ResourceName {
             get {
-                return "DataItemReport.rpt";
+                return "POReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace SerbaJaya_POS {
         
         public override string FullResourceName {
             get {
-                return "SerbaJaya_POS.DataItemReport.rpt";
+                return "SerbaJaya_POS.POReport.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace SerbaJaya_POS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace SerbaJaya_POS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace SerbaJaya_POS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,17 +90,25 @@ namespace SerbaJaya_POS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IS_DISCONTINUED {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
-                return this.DataDefinition.ParameterFields[0];
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedDataItemReport : Component, ICachedReport {
+    public class CachedPOReport : Component, ICachedReport {
         
-        public CachedDataItemReport() {
+        public CachedPOReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +145,7 @@ namespace SerbaJaya_POS {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            DataItemReport rpt = new DataItemReport();
+            POReport rpt = new POReport();
             rpt.Site = this.Site;
             return rpt;
         }

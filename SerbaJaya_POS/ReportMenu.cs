@@ -13,8 +13,16 @@ namespace SerbaJaya_POS
 {
     public partial class ReportMenu : Form
     {
+        
         Dictionary<string, string> employee = new Dictionary<string, string>();
         Dictionary<string, string> supplier = new Dictionary<string, string>();
+        Dictionary<string, string> position = new Dictionary<string, string>();
+
+        void openReport(string formula, string namaReport)
+        {
+            LoadReport report = new LoadReport(formula, namaReport);
+            report.Show();
+        }
 
         string handleStatus(string cbValue)
         {
@@ -49,7 +57,7 @@ namespace SerbaJaya_POS
                 "INNER JOIN Position P " +
                 "ON P.PositionID = E.PositionID " +
                 $"WHERE (IsNotEmployee IS NULL OR IsNotEmployee LIKE '%{status}%') AND " +
-                $"(PositionName IS NULL OR PositionName LIKE '%{role}%')";
+                $"(E.PositionID IS NULL OR E.PositionID LIKE '%{role}%')";
 
             return query;
         }
@@ -71,12 +79,21 @@ namespace SerbaJaya_POS
             return employeeID;
         }
 
-        string handleDate(string start, string end, string columnName)
+        string[] handleAllDate(CheckBox inputCb, string dateStart, string dateEnd)
         {
-            if (!string.IsNullOrEmpty(start) && !string.IsNullOrEmpty(end))
+            if (inputCb.Checked) return null;
+
+            string[] date = { dateStart, dateEnd };
+
+            return date;
+        }
+
+        string handleDate(string[] dateArr, string columnName)
+        {
+            if (dateArr != null)
             {
-                return $"AND (cast({columnName} AS DATE) >= '{start}' AND " +
-                    $"cast({columnName} AS DATE) <= '{end}') ";
+                return $"AND (cast({columnName} AS DATE) >= '{dateArr[0]}' AND " +
+                    $"cast({columnName} AS DATE) <= '{dateArr[1]}') ";
             }
 
             return null;
@@ -84,13 +101,13 @@ namespace SerbaJaya_POS
 
         string salesQuery(
             string employeeID = null,
-            string startDate = null,
-            string endDate = null)
+            string[] date = null
+        )
         {
             string query = "SELECT * FROM Sales WHERE " +
                 $"(EmployeeID IS NULL OR EmployeeID LIKE '%{employeeID}%' ) ";
 
-            query += handleDate(startDate, endDate, "TransactionDate");
+            query += handleDate(date, "TransactionDate");
 
             MessageBox.Show(query);
             return query;
@@ -98,8 +115,7 @@ namespace SerbaJaya_POS
 
         string poQuery(
             string supplierID = null,
-             string startDate = null,
-            string endDate = null,
+             string[] date = null,
             string status = null
         )
         {
@@ -109,7 +125,7 @@ namespace SerbaJaya_POS
                    $"WHERE (P.SupplierID IS NULL OR P.SupplierID LIKE '%{supplierID}%' ) AND " +
                    $"(IsDone IS NULL OR IsDone LIKE '%{status}%' )";
 
-            query += handleDate(startDate, endDate, "OrderDate");
+            query += handleDate(date, "OrderDate");
 
             MessageBox.Show(query);
             return query;
@@ -173,6 +189,9 @@ namespace SerbaJaya_POS
             string querySupplier = "SELECT DISTINCT P.SupplierID, S.SupplierName FROM PurchaseOrder P " +
                 "INNER JOIN Supplier S ON S.SupplierID = P.SupplierID";
             loadCB(querySupplier, cbSupplierPO, supplier);
+
+            string queryPosition = "SELECT * FROM Position WHERE NOT PositionName LIKE 'Manager'  ";
+            loadCB(queryPosition, cbPosition, position);
         }
 
         public ReportMenu()
@@ -224,7 +243,7 @@ namespace SerbaJaya_POS
         private void btnFilterEmployee_Click(object sender, EventArgs e)
         {
 
-            string position = cbPosition.Text;
+            string position = handleCB(checkPosition, cbPosition);
             string status = handleStatus(cbStatusEmployee.Text);
 
             loadDGV(employeeQuery(position, status));
@@ -240,9 +259,11 @@ namespace SerbaJaya_POS
         {
             string startDate = dtpStartSales.Value.Date.ToString("yyyy-MM-dd");
             string endDate = dtpEndSales.Value.Date.ToString("yyyy-MM-dd");
+
+            string[] date = handleAllDate(checkDateSales, startDate, endDate);
             string employeeID = handleCB(checkEmployee, cbEmployeeSales);
 
-            loadDGV(salesQuery(employeeID, startDate, endDate));
+            loadDGV(salesQuery(employeeID, date));
         }
 
         private void checkEmployee_CheckedChanged(object sender, EventArgs e)
@@ -263,7 +284,9 @@ namespace SerbaJaya_POS
             string dateEnd = dtpEndPO.Value.Date.ToString("yyyy-MM-dd");
             string supplierID = handleCB(checkPO, cbSupplierPO);
 
-            loadDGV(poQuery(supplierID, dateStart, dateEnd, handleStatus(cbStatusPO.Text)));
+            string[] date = handleAllDate(checkPODate, dateStart, dateEnd);
+
+            loadDGV(poQuery(supplierID, date , handleStatus(cbStatusPO.Text)));
         }
 
         private void checkPO_CheckedChanged(object sender, EventArgs e)
@@ -275,6 +298,104 @@ namespace SerbaJaya_POS
             else
             {
                 cbSupplierPO.Enabled = true;
+            }
+        }
+
+        private void btnReportEmployee_Click(object sender, EventArgs e)
+        {
+            string position = handleCB(checkPosition, cbPosition);
+            string status = handleStatus(cbStatusEmployee.Text);
+
+            string query = "";
+            if (position != null) query += " {Employee.PositionID} = '"+position+"'";
+            if (status != null) query += " AND {Employee.IsNotEmployee}  = '" + status + "' ";
+
+            openReport(query, "employee");
+        }
+
+        private void btnReportItem_Click(object sender, EventArgs e)
+        {
+            string status = handleStatus(cbStatusItem.Text);
+
+            string query = "";
+
+            if (status != null) query += " {DataItem.IsDiscontinued}= '" + status + "' ";
+            openReport(query, "item");
+        }
+
+        private void btnReportSales_Click(object sender, EventArgs e)
+        {
+            string startDate = dtpStartSales.Value.Date.ToString();
+            string endDate = dtpEndSales.Value.Date.ToString();
+            string employeeID = handleCB(checkEmployee, cbEmployeeSales);
+
+            string[] date = handleAllDate(checkDateSales, startDate, endDate);
+
+            string query = "";
+
+            if (date != null) query += "{ Sales.TransactionDate} >= CDate('" + date[0] + "') AND " +
+                "{Sales.TransactionDate} <= CDate('" + date[1] + "') ";
+            if (employeeID != null) query += " AND {Sales.EmployeeID} = '" + employeeID + "' ";
+
+            openReport(query, "sales");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkPosition.Checked)
+            {
+                cbPosition.Enabled = false;
+            }
+            else
+            {
+                cbPosition.Enabled = true;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkPODate.Checked)
+            {
+                dtpEndPO.Enabled = false;
+                dtpStartPO.Enabled = false;
+            }
+            else
+            {
+                dtpEndPO.Enabled = true;
+                dtpStartPO.Enabled = true;
+            }
+        }
+
+        private void btnReportPO_Click(object sender, EventArgs e)
+        {
+            string startDate = dtpStartPO.Value.Date.ToString();
+            string endDate = dtpEndPO.Value.Date.ToString();
+            string supplierID = handleCB(checkPO, cbSupplierPO);
+            string status = handleStatus(cbStatusPO.Text);
+
+            string[] date = handleAllDate(checkPODate, startDate, endDate);
+
+            string query = "";
+
+            if (date != null) query += "{ PurchaseOrder.OrderDate} >= CDate('" + date[0] + "') AND " +
+                "{PurchaseOrder.OrderDate} <= CDate('" + date[1] + "') ";
+            if (supplierID != null) query += "AND {PurchaseOrder.SupplierID} = '" + supplierID + "'";
+            if (status != null) query += "AND { PurchaseOrder.IsDone } = '" + status + "' ";
+
+            openReport(query, "purchaseOrder");
+        }
+
+        private void cbDateSales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkDateSales.Checked)
+            {
+                dtpEndSales.Enabled = false;
+                dtpStartSales.Enabled = false;
+            }
+            else
+            {
+                dtpEndSales.Enabled = true;
+                dtpStartSales.Enabled = true;
             }
         }
     }

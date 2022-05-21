@@ -19,6 +19,15 @@ namespace SerbaJaya_POS
 
         public string employeeID;
 
+        //-----------Crystal Report-----------------------
+        void loadReport(string id)
+        {
+            string query = "{Sales.SalesID} = '" + id + "' ";
+            LoadReport report = new LoadReport(query, "cashier");
+            report.Show();
+        }
+
+
         //-------------Database Method---------------------
 
         void insertDataDetail()
@@ -70,14 +79,18 @@ namespace SerbaJaya_POS
                 conn.CloseConnectoin();
 
                 insertDataDetail();
-
-                MessageBox.Show("Transaksi Selesai! Terima kasih.");
-                RefreshPage();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            string id = tbID.Text;
+            MessageBox.Show("Transaksi Selesai! Terima kasih.");
+            RefreshPage();
+            loadReport(id);
+
         }
 
         int getSubtotal(DataGridView dgv)
@@ -126,9 +139,9 @@ namespace SerbaJaya_POS
         {
             string query =
                 "SELECT ItemID, ItemName, SalesPrice, Stock " +
-                "FROM DataItem WHERE Stock > 0 AND " +
+                "FROM DataItem WHERE Stock >= 1 AND ( " +
                 $"(ItemID IS NULL OR ItemID like '%{filter}%' ) OR " +
-                $"(ItemName IS NULL OR ItemName like '%{filter}%' )";
+                $"(ItemName IS NULL OR ItemName like '%{filter}%' ))";
 
             var conn = new Connection.Connection_Query();
 
