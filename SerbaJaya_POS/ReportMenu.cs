@@ -334,8 +334,8 @@ namespace SerbaJaya_POS
             string query = "";
 
             if (date != null) query += "{ Sales.TransactionDate} >= CDate('" + date[0] + "') AND " +
-                "{Sales.TransactionDate} <= CDate('" + date[1] + "') ";
-            if (employeeID != null) query += " AND {Sales.EmployeeID} = '" + employeeID + "' ";
+                "{Sales.TransactionDate} <= CDate('" + date[1] + "') AND";
+            if (employeeID != null) query += "  {Sales.EmployeeID} = '" + employeeID + "' ";
 
             openReport(query, "sales");
         }
