@@ -89,7 +89,7 @@ namespace SerbaJaya_POS
             string id = tbID.Text;
             MessageBox.Show("Transaksi Selesai! Terima kasih.");
             RefreshPage();
-            loadReport(id);
+            //loadReport(id);
 
         }
 
