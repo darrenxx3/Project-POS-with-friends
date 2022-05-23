@@ -40,8 +40,8 @@ namespace SerbaJaya_POS
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDone = new System.Windows.Forms.Button();
             this.dgvPODetail = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -50,10 +50,13 @@ namespace SerbaJaya_POS
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.SkyBlue;
             this.groupBox2.Controls.Add(this.dgvPO);
-            this.groupBox2.Location = new System.Drawing.Point(12, 92);
+            this.groupBox2.Location = new System.Drawing.Point(11, 74);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(963, 813);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(856, 650);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Purchase order";
@@ -84,13 +87,14 @@ namespace SerbaJaya_POS
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPO.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPO.Location = new System.Drawing.Point(21, 43);
+            this.dgvPO.Location = new System.Drawing.Point(19, 34);
+            this.dgvPO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPO.Name = "dgvPO";
             this.dgvPO.ReadOnly = true;
             this.dgvPO.RowHeadersVisible = false;
             this.dgvPO.RowHeadersWidth = 62;
             this.dgvPO.RowTemplate.Height = 28;
-            this.dgvPO.Size = new System.Drawing.Size(918, 745);
+            this.dgvPO.Size = new System.Drawing.Size(816, 596);
             this.dgvPO.TabIndex = 37;
             this.dgvPO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPO_CellContentClick);
             // 
@@ -105,21 +109,25 @@ namespace SerbaJaya_POS
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.SkyBlue;
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnDone);
             this.groupBox1.Controls.Add(this.dgvPODetail);
-            this.groupBox1.Location = new System.Drawing.Point(996, 104);
+            this.groupBox1.Location = new System.Drawing.Point(885, 83);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(919, 813);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(817, 650);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detail Purchase order";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(621, 749);
+            this.btnCancel.Location = new System.Drawing.Point(552, 599);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(135, 49);
+            this.btnCancel.Size = new System.Drawing.Size(120, 39);
             this.btnCancel.TabIndex = 39;
             this.btnCancel.Text = "cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -127,9 +135,10 @@ namespace SerbaJaya_POS
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(762, 749);
+            this.btnDone.Location = new System.Drawing.Point(677, 599);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(135, 49);
+            this.btnDone.Size = new System.Drawing.Size(120, 39);
             this.btnDone.TabIndex = 38;
             this.btnDone.Text = "done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -161,25 +170,16 @@ namespace SerbaJaya_POS
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPODetail.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPODetail.Location = new System.Drawing.Point(21, 43);
+            this.dgvPODetail.Location = new System.Drawing.Point(19, 34);
+            this.dgvPODetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPODetail.Name = "dgvPODetail";
             this.dgvPODetail.ReadOnly = true;
             this.dgvPODetail.RowHeadersVisible = false;
             this.dgvPODetail.RowHeadersWidth = 62;
             this.dgvPODetail.RowTemplate.Height = 28;
-            this.dgvPODetail.Size = new System.Drawing.Size(876, 689);
+            this.dgvPODetail.Size = new System.Drawing.Size(779, 551);
             this.dgvPODetail.TabIndex = 37;
             this.dgvPODetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPODetail_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(611, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(798, 82);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Validate Received Item";
             // 
             // cbCheck
             // 
@@ -188,14 +188,26 @@ namespace SerbaJaya_POS
             this.cbCheck.Name = "cbCheck";
             this.cbCheck.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(543, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(664, 69);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Validate Received Item";
+            // 
             // inventoryCheck
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1710, 840);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "inventoryCheck";
             this.Text = "inventoryCheck";
             this.Load += new System.EventHandler(this.inventoryCheck_Load);

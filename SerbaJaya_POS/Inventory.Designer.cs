@@ -51,21 +51,21 @@ namespace SerbaJaya_POS
             this.dgvItem.AllowUserToDeleteRows = false;
             this.dgvItem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItem.Location = new System.Drawing.Point(7, 8);
-            this.dgvItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvItem.Location = new System.Drawing.Point(6, 6);
+            this.dgvItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvItem.Name = "dgvItem";
             this.dgvItem.RowHeadersVisible = false;
             this.dgvItem.RowHeadersWidth = 62;
-            this.dgvItem.Size = new System.Drawing.Size(1844, 601);
+            this.dgvItem.Size = new System.Drawing.Size(1639, 481);
             this.dgvItem.TabIndex = 14;
             // 
             // tbFilter
             // 
             this.tbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFilter.Location = new System.Drawing.Point(18, 40);
-            this.tbFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbFilter.Location = new System.Drawing.Point(16, 32);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbFilter.Name = "tbFilter";
-            this.tbFilter.Size = new System.Drawing.Size(1833, 39);
+            this.tbFilter.Size = new System.Drawing.Size(1630, 34);
             this.tbFilter.TabIndex = 1;
             this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
             // 
@@ -73,10 +73,10 @@ namespace SerbaJaya_POS
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(658, 19);
+            this.label2.Location = new System.Drawing.Point(585, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(414, 46);
+            this.label2.Size = new System.Drawing.Size(358, 39);
             this.label2.TabIndex = 15;
             this.label2.Text = "Inventory Serba Jaya";
             // 
@@ -85,20 +85,22 @@ namespace SerbaJaya_POS
             this.tab.Controls.Add(this.tabPage1);
             this.tab.Controls.Add(this.tabPage2);
             this.tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab.Location = new System.Drawing.Point(32, 189);
+            this.tab.Location = new System.Drawing.Point(28, 151);
+            this.tab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(1866, 669);
+            this.tab.Size = new System.Drawing.Size(1659, 535);
             this.tab.TabIndex = 16;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dgvItem);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1858, 627);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1651, 497);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ready Stock";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -107,10 +109,11 @@ namespace SerbaJaya_POS
             // 
             this.tabPage2.Controls.Add(this.dgvItemEmpty);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1858, 627);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1651, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Empty Stock";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -121,34 +124,37 @@ namespace SerbaJaya_POS
             this.dgvItemEmpty.AllowUserToDeleteRows = false;
             this.dgvItemEmpty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItemEmpty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItemEmpty.Location = new System.Drawing.Point(10, 11);
-            this.dgvItemEmpty.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvItemEmpty.Location = new System.Drawing.Point(9, 9);
+            this.dgvItemEmpty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvItemEmpty.Name = "dgvItemEmpty";
             this.dgvItemEmpty.RowHeadersVisible = false;
             this.dgvItemEmpty.RowHeadersWidth = 62;
-            this.dgvItemEmpty.Size = new System.Drawing.Size(1828, 710);
+            this.dgvItemEmpty.Size = new System.Drawing.Size(1625, 568);
             this.dgvItemEmpty.TabIndex = 15;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbFilter);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(36, 84);
+            this.groupBox1.Location = new System.Drawing.Point(32, 67);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1862, 99);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1655, 79);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter Data";
             // 
             // Inventory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1710, 840);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tab);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Inventory";
             this.Text = "Inventory";
             this.Load += new System.EventHandler(this.Inventory_Load);
