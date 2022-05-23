@@ -19,7 +19,7 @@ namespace Connection
         //"Data Source=VIN\\SQLEXPRESS;Initial Catalog = UASVisprog; Integrated Security = True";
 
           //DARREN
-          "Data Source=LAPTOP-ADU8799N\\SQLEXPRESS;Initial Catalog=UASVisprog;Integrated Security=True";
+          //"Data Source=LAPTOP-ADU8799N\\SQLEXPRESS;Initial Catalog=UASVisprog;Integrated Security=True";
 
         //Rendy
         "Data Source=LAPTOP-3HAEUVP8\\SQLEXPRESS;Initial Catalog=UASVisprog;Integrated Security=True";
