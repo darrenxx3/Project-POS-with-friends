@@ -18,6 +18,18 @@ namespace SerbaJaya_POS
         Dictionary<string, string> supplier = new Dictionary<string, string>();
         Dictionary<string, string> position = new Dictionary<string, string>();
 
+        void handleQuery(string targetQuery, string add)
+        {
+            if(targetQuery != "")
+            {
+                targetQuery += $"AND {add}";
+            }
+            else
+            {
+                targetQuery += add;
+            }
+        }
+
         void openReport(string formula, string namaReport)
         {
             LoadReport report = new LoadReport(formula, namaReport);
@@ -109,8 +121,8 @@ namespace SerbaJaya_POS
 
             query += handleDate(date, "TransactionDate");
 
-            MessageBox.Show(query);
             return query;
+            //
         }
 
         string poQuery(
@@ -127,7 +139,6 @@ namespace SerbaJaya_POS
 
             query += handleDate(date, "OrderDate");
 
-            MessageBox.Show(query);
             return query;
         }
 
@@ -306,9 +317,9 @@ namespace SerbaJaya_POS
             string position = handleCB(checkPosition, cbPosition);
             string status = handleStatus(cbStatusEmployee.Text);
 
-            string query = "";
-            if (position != null) query += " {Employee.PositionID} = '"+position+"'";
-            if (status != null) query += " AND {Employee.IsNotEmployee}  = '" + status + "' ";
+            string query = ""; 
+            if (position != null) handleQuery(query, " {Employee.PositionID} = '" + position + "'");
+            if (status != null) handleQuery(query, " AND {Employee.IsNotEmployee}  = '" + status + "' ");
 
             openReport(query, "employee");
         }
@@ -333,9 +344,9 @@ namespace SerbaJaya_POS
 
             string query = "";
 
-            if (date != null) query += "{ Sales.TransactionDate} >= CDate('" + date[0] + "') AND " +
-                "{Sales.TransactionDate} <= CDate('" + date[1] + "') ";
-            if (employeeID != null) query += " AND {Sales.EmployeeID} = '" + employeeID + "' ";
+            if (date != null) handleQuery(query, "{ Sales.TransactionDate} >= CDate('" + date[0] + "') AND " +
+                "{Sales.TransactionDate} <= CDate('" + date[1] + "') ");
+            if (employeeID != null) handleQuery(query ,"{Sales.EmployeeID} = '" + employeeID + "' ");
 
             openReport(query, "sales");
         }
@@ -377,10 +388,10 @@ namespace SerbaJaya_POS
 
             string query = "";
 
-            if (date != null) query += "{ PurchaseOrder.OrderDate} >= CDate('" + date[0] + "') AND " +
-                "{PurchaseOrder.OrderDate} <= CDate('" + date[1] + "') ";
-            if (supplierID != null) query += "AND {PurchaseOrder.SupplierID} = '" + supplierID + "'";
-            if (status != null) query += "AND { PurchaseOrder.IsDone } = '" + status + "' ";
+            if (date != null) handleQuery(query ,"{ PurchaseOrder.OrderDate} >= CDate('" + date[0] + "') AND " +
+                "{PurchaseOrder.OrderDate} <= CDate('" + date[1] + "') ");
+            if (supplierID != null) handleQuery(query ,"{PurchaseOrder.SupplierID} = '" + supplierID + "'");
+            if (status != null) handleQuery(query ,"{ PurchaseOrder.IsDone } = '" + status + "' ");
 
             openReport(query, "purchaseOrder");
         }

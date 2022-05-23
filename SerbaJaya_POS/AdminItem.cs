@@ -43,7 +43,6 @@ namespace SerbaJaya_POS
             conn.CloseConnectoin();
 
             int digit = 4;
-            MessageBox.Show(temp.ToString());
             int increment = temp + 1;
 
             var id = $"MK{increment.ToString().PadLeft(digit, '0')}";

@@ -65,7 +65,6 @@ namespace SerbaJaya_POS
                 "(EmployeeID, EmployeeName, PositionID, Address, PhoneNumber, Password, IsNotEmployee)" +
                 $"VALUES('{tbID.Text}', '{tbName.Text}', '{positionID}' ,'{tbAddress.Text}', '{tbPhone.Text}', '123' , 'false')";
 
-                MessageBox.Show(query);
 
                 conn.ExecuteQueires(query);
 

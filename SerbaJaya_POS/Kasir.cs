@@ -70,7 +70,7 @@ namespace SerbaJaya_POS
             string query1 =
                 "INSERT INTO Sales " +
                 "(SalesID, TransactionDate, EmployeeID) " +
-                $"VALUES ('{tbID.Text}', CONVERT(VARCHAR, '{DateTime.Now}', 103), '{tbCashier.Text}')";
+                $"VALUES ('{tbID.Text}', CONVERT(VARCHAR, '{DateTime.Now.ToString("MM/dd/yyyy")}', 103), '{tbCashier.Text}')";
 
             try
             {
