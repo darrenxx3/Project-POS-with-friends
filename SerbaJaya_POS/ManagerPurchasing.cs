@@ -33,7 +33,7 @@ namespace SerbaJaya_POS
             {
                 string insertQuery =
                       "INSERT INTO PurchaseOrder(PurchaseOrderID, SupplierID, OrderDate, EmployeeID, IsDone) " +
-                      $"VALUES('{tbPOid.Text}', '{tbSupplierID.Text}', '{DateTime.Now.ToString()}' ,'{tbManager.Text}', 'false')";
+                      $"VALUES('{tbPOid.Text}', '{tbSupplierID.Text}', '{DateTime.Now.ToString("MM/dd/yyyy")}' ,'{tbManager.Text}', 'false')";
 
                 conn.ExecuteQueires(insertQuery);               
             }
