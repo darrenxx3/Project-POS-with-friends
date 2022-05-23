@@ -20,9 +20,9 @@ namespace SerbaJaya_POS
         public string employeeID;
 
         //-----------Crystal Report-----------------------
-        void loadReport(string id)
+        void loadReport()
         {
-            string query = "{Sales.SalesID} = '" + id + "' ";
+            string query = "{Sales.SalesID} = '" + tbID.Text + "' ";
             LoadReport report = new LoadReport(query, "cashier");
             report.Show();
         }
@@ -70,7 +70,7 @@ namespace SerbaJaya_POS
             string query1 =
                 "INSERT INTO Sales " +
                 "(SalesID, TransactionDate, EmployeeID) " +
-                $"VALUES ('{tbID.Text}', '{DateTime.Now}', '{tbCashier.Text}')";
+                $"VALUES ('{tbID.Text}', CONVERT(VARCHAR, '{DateTime.Now}', 103), '{tbCashier.Text}')";
 
             try
             {
@@ -87,9 +87,9 @@ namespace SerbaJaya_POS
             }
 
             string id = tbID.Text;
+            loadReport();
             MessageBox.Show("Transaksi Selesai! Terima kasih.");
             RefreshPage();
-            //loadReport(id);
 
         }
 
