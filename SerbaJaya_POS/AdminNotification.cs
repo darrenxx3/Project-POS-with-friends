@@ -15,7 +15,7 @@ namespace SerbaJaya_POS
     public partial class AdminNotification : Form
     {
         public string PATH = "..\\..\\notification.txt";
-
+        
         string notificationFormat(string message)
         {
             string msg =
@@ -23,44 +23,64 @@ namespace SerbaJaya_POS
                 Environment.NewLine +
                 "-------------------" +
                 Environment.NewLine +
-                $"{message}";
+                $"{message}" +
+                Environment.NewLine;
 
             return msg;
         }
-
+        
         public AdminNotification()
         {
             InitializeComponent();
         }
 
-        void refreshPage()
+        static string Baca()
         {
-            string txtString = File.ReadAllText(PATH);
-            tbMessage.Text = txtString;
+            FileStream fs = new FileStream("..\\..\\notification.txt", FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite);
+            StreamReader sr = new StreamReader(fs);
+            return (sr.ReadToEnd());
+            sr.Close();
+            fs.Close();
+        }
+
+        static void Tulis(string kata)
+        {
+            FileStream fs = new FileStream("..\\..\\notification.txt", FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine(kata);
+            sw.Close();
+            fs.Close();
         }
 
         private void AdminNotification_Load(object sender, EventArgs e)
         {
-            refreshPage();   
+            richTextBox1.Text = Baca();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             File.WriteAllText(PATH, "");
-            refreshPage();
+            tbMessage.Text = Baca();
+            richTextBox1.Text = "";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            string template = "";
-            if (tbMessage.Text != "")
-            {
-                template = notificationFormat(tbMessage.Text);
-            }
-
-            File.WriteAllText(PATH, template);
+        {            
+            string message = notificationFormat(tbMessage.Text);
+            Tulis(message);
+            richTextBox1.Text = Baca();
             MessageBox.Show("Notification successfully Updated!");
-            refreshPage();
+            tbMessage.Text = "";
+        }
+
+        private void tbMessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

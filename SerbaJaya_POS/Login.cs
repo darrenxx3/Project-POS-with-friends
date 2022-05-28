@@ -61,5 +61,10 @@ namespace SerbaJaya_POS
             }
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
