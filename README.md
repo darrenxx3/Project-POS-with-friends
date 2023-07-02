@@ -1,7 +1,7 @@
 # Project-POS-with-friends
 
  Point of Sales is a physical or digital location where a sales transaction takes place. The point of sale is the moment when a customer makes a payment to a merchant in exchange for goods or services. 
- It can also refer to the software and hardware used to process these transactions. This project is consist of 7 members, and build this with a SQL and C# programming language.
+ It can also refer to the software and hardware used to process these transactions. This project called "SerbaJayaPOS", the purpose of making this system is to help SerbaJaya about making an item reminder condition on warehouse, so it helps the admin when should the item must be refil again on the warehouse. This project is consist of 7 members, and build this with a SQL and C# programming language.
 
  Therefore, the 7 members are:
  1. Vincencius Christiano Tjokro A.K.A @AstroGogh
