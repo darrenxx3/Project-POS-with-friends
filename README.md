@@ -4,10 +4,10 @@
  It can also refer to the software and hardware used to process these transactions. This project is consist of 7 members, and build this with a SQL and C# programming language.
 
  Therefore, the 7 members are:
- 1. Vincencius Christiano Tjokro
+ 1. Vincencius Christiano Tjokro A.K.A @AstroGogh
  2. Vincent Setiadi Kurniawan
  3. Vincent Roesli
- 4. Stevanus Pungky
+ 4. Stevanus Pungky A.K.A @Bopung
  5. Christopher Darren
- 6. Rendy Wirawan Tamrin
+ 6. Rendy Wirawan Tamrin A.K.A @RendyW
  7. Benaya Arlyanto
