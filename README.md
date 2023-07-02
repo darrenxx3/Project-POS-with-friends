@@ -5,7 +5,7 @@
 
  Therefore, the 7 members are:
  1. Vincencius Christiano Tjokro A.K.A @AstroGogh
- 2. Vincent Setiadi Kurniawan A.K.A @ksetnecniv
+ 2. Vincent Setiadi Kurniawan A.K.A @Kstnecniv
  3. Vincent Roesli
  4. Stevanus Pungky A.K.A @Bopung
  5. Christopher Darren A.K.A @darrenxx3
